@@ -61,7 +61,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li class="nav-item">
-                            <form action="{{ rote('logout') }}" id="logout-form" method="POST">
+                            <form action="{{ route('logout') }}" id="logout-form" method="POST">
                                 @csrf
                                 <button type="submit" class="btn nav-link">Logout</button>
                             </form>

@@ -23,14 +23,14 @@
 
                     <div class="mb-3">
                         <label for="email" class="form-label">Email:</label>
-                        <input type="email" name="email" class="form-control" id="email" value={{ old (email)}}>
+                        <input type="email" name="email" class="form-control" id="email" value={{ old ('email')}}>
                       </div>
 
                       <div class="mb-3">
                         <label for="password" class="form-label">Password:</label>
                         <input type="password" name="password" class="form-control" id="password">
                       </div>
-
+                      @error('email') <span class="text-danger"> {{$message}}</span>  @enderror
                       <div class="mb-3">
                        <button class="btn bg-info text-white">Login</button>
                        <p class="small-mt-2">Non sei registrato? <a href="{{ route ('register')}}"></a>Clicca qui</p>

@@ -14,7 +14,7 @@
     <title>The Aulab Post - Giulia</title>
 </head>
 <body>
-    <x-navbar />
+    <x-navbar></x-navbar>
     <div class="min-vh-100">
         {{$slot}}
     </div>
