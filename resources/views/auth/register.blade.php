@@ -21,7 +21,7 @@
                 <form class="card p-5 shadow" action="{{route('register')}}" method="POST">
                     @csrf
                     <div class="mb-3">
-                      <label for="username" class="form-label">Nome:</label>
+                      <label for="username" class="form-label">Username:</label>
                       <input type="text" name="name" class="form-control" id="username" value={{ old (name)}}>
                     </div>
 
