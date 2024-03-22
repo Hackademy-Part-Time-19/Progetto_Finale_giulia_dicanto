@@ -1,5 +1,20 @@
 *{
  
-  font-family: "Kufam", sans-serif;
+  font-family: "Urbanist", sans-serif;
+  color:#2a2a2a;
 
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+  background-color: #BFB6FF;
+}
+
+.btn-info, .btn-info:hover, .btn-info:active, .btn-info:visited {
+  background-color: #CEFF68;
+  border: #CEFF68;
+}
+
+.btn-bg-info {
+  background-color: #CEFF68;
+  border: #CEFF68;
 }

@@ -40,13 +40,13 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="password_confirmation" class="form-label">Password:</label>
+                        <label for="password_confirmation" class="form-label"> Confirm Password:</label>
                         <input type="password" name="password_confirmarion" class="form-control"
                             id="password_confirmation">
                     </div>
 
                     <div class="mb-3">
-                        <button class="btn bg-info text-white">Registrati</button>
+                        <button class="btn" style="background-color: #CEFF68;">Sign Up</button>
                         <p class="small-mt-2">Già registrato? <a href="{{ route('login') }}"></a>Clicca qui</p>
                     </div>
 

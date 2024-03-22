@@ -3,7 +3,7 @@
     <!-- Left nav/link -->
     <div class="container-fluid p-1" style="margin-left: 40px; margin-right: 40px;">
         <img class="d-inline-block align-text-top" style="height: 85px; margin-right: 15px;"
-            src="./logo/Musicartacademy-logo-white-264x264.png" alt="logo the aulab post">
+            src="/img/The-Aulab-Post-logobn-320x320.png" alt="logo the aulab post">
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -73,11 +73,11 @@
             <div style="flex:0.5; display: flex; align-items: center; justify-content: center;">
               <div style="margin: 5px">
                   <button stye="flex:1; padding: 5px; margin-right: 5px;" type="button"
-                      class="btn btn-secondary"><a class="dropdown-item" href="{{route('login')}}">Login</a></button>
+                      class="btn text-white" style="background-color:#2a2a2a";><a class="dropdown-item" href="{{route('login')}}">Login</a></button>
               </div>
               <div>
-                  <button stye="flex:1; padding: 5px; margin- left: 5px;" type="button"
-                      class="btn btn-info d-flex"><a class="dropdown-item" href="{{route('register')}}">Registrati</a></button>
+                  <button stye="flex:1; padding: 5px; margin- left: 5px; background: black;" type="button"
+                      class="btn d-flex" style="background-color: #CEFF68;"><a class="dropdown-item" href="{{route('register')}}">Registrati</a></button>
 
               </div>
           </div>
