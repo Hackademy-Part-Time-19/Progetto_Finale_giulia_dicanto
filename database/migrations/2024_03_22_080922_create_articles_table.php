@@ -16,9 +16,10 @@ return new class extends Migration {
             $table->string('subtitle');
             $table->longText('body');
             $table->string('image');
-//             $table->unsignedBigInteger('user_id')->nullable();
-// $table->foreign('user_id')->references('id')->on ('user')->onDelete('SET NULL');
-$table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
+            // $table->unsignedBigInteger('user_id')->nullable();
+            // $table->foreign('user_id')->references('id')->on ('user')->onDelete('SET NULL');
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
+            $table->foreignId('category_id')->nullable()->constrained()->onDelete('cascade');
 
             $table->timestamps();
         });
