@@ -52,37 +52,49 @@
                         <button type="summit" class="btn btn-outline-secondary">Search</button>
                     </form>
                 </div>
+                <div style="display: flex; align-items: center;">
+                </div>
+
             </div>
+
             @auth
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
+                <div class="container">
+                    <a class="nav-link" href="#" role="button">
                         Benvenuto {{ Auth::user()->name }}
                     </a>
-                    <ul class="dropdown-menu">
-                        <li class="nav-item">
-                            <form action="{{ route('logout') }}" id="logout-form" method="POST">
-                                @csrf
-                                <button type="submit" class="btn nav-link">Logout</button>
-                            </form>
-                        </li>
-                    </ul>
-                </li>
-            @endauth
-            @guest
-            <div style="flex:0.5; display: flex; align-items: center; justify-content: center;">
-              <div style="margin: 5px">
-                  <button stye="flex:1; padding: 5px; margin-right: 5px;" type="button"
-                      class="btn text-white" style="background-color:#2a2a2a";><a class="dropdown-item" href="{{route('login')}}">Login</a></button>
-              </div>
-              <div>
-                  <button stye="flex:1; padding: 5px; margin- left: 5px; background: black;" type="button"
-                      class="btn d-flex" style="background-color: #CEFF68;"><a class="dropdown-item" href="{{route('register')}}">Registrati</a></button>
+                    <div class="d-flex">
+                        <a class="nav-link" href="{{ route('article.create') }}"><button type="submit" class="btn nav-link" style="padding:5px; background-color: #CEFF68;">
+                        </button>Crea il tuo Post</a>
+                        
 
-              </div>
-          </div>
+                        <form action="{{ route('logout') }}" id="logout-form" method="POST">
+                            @csrf
+                            <button type="submit" class="btn nav-link text-white"
+                                style="margin:5px; padding:5px; background-color:#2a2a2a">Logout</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            @endauth
+
+
+            @guest
+                <div style="flex:0.5; display: flex; align-items: center; justify-content: center;">
+                    <div style="margin: 5px">
+                        <button stye="flex:1; padding: 5px; margin-right: 5px;" type="button" class="btn text-white"
+                            style="background-color:#2a2a2a";><a class="dropdown-item"
+                                href="{{ route('login') }}">Login</a></button>
+                    </div>
+                    <div>
+                        <button stye="flex:1; padding: 5px; margin- left: 5px; background: black;" type="button"
+                            class="btn d-flex" style="background-color: #CEFF68;"><a class="dropdown-item"
+                                href="{{ route('register') }}">Registrati</a></button>
+
+                    </div>
+                </div>
             @endguest
 
-            
+
         </div>
 </nav>
