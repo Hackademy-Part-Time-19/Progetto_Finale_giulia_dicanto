@@ -19,7 +19,8 @@
                 </div>
             @endif
 
-            <form action="{{route ('article.store')}}" method="post" class="card p-5 shadow" enctype="multipart/form-data">
+            <form action="{{ route('article.store') }}" method="post" class="card p-5 shadow"
+                enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                     <label for="title" class="form-label">Titolo:</label>
@@ -40,9 +41,10 @@
 
                 <div class="mb-3">
                     <label for="category" class="form-label">Categoria:</label>
+
                     <select name="category" id="category" class="form-control text-capitalize">
                         @foreach ($categories as $category)
-                            <option value="{{ $category->id }}"->{{ $category->name }}</option>
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
                         @endforeach
                     </select>
 

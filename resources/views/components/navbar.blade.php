@@ -58,23 +58,30 @@
             </div>
 
             @auth
-                <div class="container">
-                    <a class="nav-link" href="#" role="button">
-                        Benvenuto {{ Auth::user()->name }}
-                    </a>
-                    <div class="d-flex">
-                        <a class="nav-link" href="{{route('article.create')}}"><button type="submit" class="btn nav-link" style="padding:5px; background-color: #CEFF68;">
-                        </button>Crea il tuo Post</a>
-                        
+                <div class="d-flex">
+                    
 
+                    <div class="container">
+                        <a class="nav-link" href="#" role="button">
+                            Benvenuto {{ Auth::user()->name }}
+                        </a>
+                        <a class="nav-link" href="{{ route('article.create') }}"><button type="submit" class="btn nav-link"
+                                style="padding:2px; border: #CEFF68;">
+                            </button>Crea il tuo Post</a>
+
+                        <a class="nav-link" href="{{ route('article.index') }}"><button type="submit" class="btn nav-link"
+                                style="padding:2px; border: #CEFF68;">
+                            </button>I miei Articoli</a>
                         <form action="{{ route('logout') }}" id="logout-form" method="POST">
-                            @csrf
-                            <button type="submit" class="btn nav-link text-white"
-                                style="margin:5px; padding:5px; background-color:#2a2a2a">Logout</button>
-                        </form>
+
 
                     </div>
-
+                    @csrf
+                    <div class="justify-content-center align-item-center">
+                    <button type="submit" class="btn nav-link text-white"
+                        style="margin:5px; padding:5px; background-color:#2a2a2a">Logout</button>
+                    </form>
+                </div>
                 </div>
             @endauth
 
@@ -84,7 +91,7 @@
                     <div style="margin: 5px">
                         <button stye="flex:1; padding: 5px; margin-right: 5px;" type="button" class="btn text-white"
                             style="background-color:#2a2a2a";><a class="dropdown-item"
-                                href="{{route('login')}}">Login</a></button>
+                                href="{{ route('login') }}">Login</a></button>
                     </div>
                     <div>
                         <button stye="flex:1; padding: 5px; margin- left: 5px; background: black;" type="button"

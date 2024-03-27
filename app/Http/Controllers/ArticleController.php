@@ -23,8 +23,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::all();
-        return view('article.index');
+        $articles = Article::orderBy('created_at','desc')->get();
+        return view('article.index', compact('articles'));
     }
 
     /**
@@ -32,7 +32,8 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('article.create', ['categories'=>Category::all()]);
+        $categories = Category::all();
+        return view('article.create', compact('categories'));
     }
 
     /**
@@ -44,34 +45,33 @@ class ArticleController extends Controller
 
             'title' => 'required|unique:articles|min:5',
             'subtitle' => 'required|min:5',
-            'body' => 'required|min:10',
+            'body' => 'required|string|min:10',
             'image' => 'image|required',
-            'category_id' => 'required',
+            'category' => 'required',
         ]);
 
         $article = auth()->user()->articles()->create([
 
-            'title' => $request->input("name"),
-            'subtitle' => $request->input("description"),
-            'body' => $request->input("price"),
-            'image' => $request->file ('image'),
-            'category_id'=> $request->category,
-            "user_id" =>  auth()->user()->id,    
+            'title' => $request->input("title"),
+            'subtitle' => $request->input("subtitle"),
+            'body' => $request->input("body"),
+            'image' => $request->file('image')->store('image'),
+            'category_name' => $request->category,
 
         ]);
-
+        $article = Article::create($request->all());
         $article->categories()->attach($request->categories);
 
-        if($request->hasFile('image')){
-            $path="public/".$article->id."/";
-            $name= uniqid().".". $article->file('image')->extension();
-            $article->file('image')->storeAs($path,$name);
-            $article->image= $path.$name;
+        if ($request->hasFile('image')) {
+            $path = "public/" . $article->id . "/";
+            $name = uniqid() . "." . $article->file('image')->extension();
+            $article->file('image')->storeAs($path, $name);
+            $article->image = $path . $name;
             $article->save();
         }
-        return redirect(route('homepage'))->with(['success'=>'Post inserito con successo!']);
+        return redirect(route('article.index'))->with(['success' => 'Post inserito con successo!']);
     }
-    
+
 
     /**
      * Display the specified resource.
@@ -83,14 +83,13 @@ class ArticleController extends Controller
         if (Auth::check()) {
             // Recupera l'ID dell'utente autenticato
             $userId = Auth::id();
-            
+
             // Recupera gli articoli dell'utente loggato in ordine di data decrescente
             $articles = Article::where('user_id', $userId)->latest()->get();
 
-            return $articles;
+            return view('article.show', compact('article'));
         } else {
-            // Se l'utente non è autenticato, puoi gestire questa situazione come preferisci,
-            // ad esempio reindirizzando l'utente alla pagina di login
+            // Se l'utente non è autenticato
             return redirect()->route('login');
         }
     }
@@ -108,7 +107,7 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-       //
+        //
     }
 
     /**
