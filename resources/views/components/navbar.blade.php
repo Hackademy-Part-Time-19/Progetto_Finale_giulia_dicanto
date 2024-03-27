@@ -16,7 +16,7 @@
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" style="color: rgb(48, 46, 46);" href="#" role="button"
-                        data-bs-toggle="dropdown">AULibrary</a>
+                        data-bs-toggle="dropdown">TheAulabPOST</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Chi Siamo</a></li>
                         <li><a class="dropdown-item" href="#">Mission</a></li>
@@ -63,7 +63,7 @@
                         Benvenuto {{ Auth::user()->name }}
                     </a>
                     <div class="d-flex">
-                        <a class="nav-link" href="{{ route('article.create') }}"><button type="submit" class="btn nav-link" style="padding:5px; background-color: #CEFF68;">
+                        <a class="nav-link" href="{{route('article.create')}}"><button type="submit" class="btn nav-link" style="padding:5px; background-color: #CEFF68;">
                         </button>Crea il tuo Post</a>
                         
 
@@ -84,7 +84,7 @@
                     <div style="margin: 5px">
                         <button stye="flex:1; padding: 5px; margin-right: 5px;" type="button" class="btn text-white"
                             style="background-color:#2a2a2a";><a class="dropdown-item"
-                                href="{{ route('login') }}">Login</a></button>
+                                href="{{route('login')}}">Login</a></button>
                     </div>
                     <div>
                         <button stye="flex:1; padding: 5px; margin- left: 5px; background: black;" type="button"

@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use Illuminate\Http\Request;
 
 class PublicController extends Controller
 {
-    public function homepage() {
-        return view('welcome');
+    public function homepage()
+    {
+        // Recupera gli ultimi 4 articoli in ordine di data decrescente
+        $article = Article::orderBy('created_at', 'desc')->take(4)->get();
+
+        return view('welcome', ['articles'=> $article]);
     }
 
 }
