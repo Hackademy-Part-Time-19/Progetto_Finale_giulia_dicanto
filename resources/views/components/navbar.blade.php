@@ -95,8 +95,8 @@
                     </div>
                     <div>
                         <button stye="flex:1; padding: 5px; margin- left: 5px; background: black;" type="button"
-                            class="btn d-flex" style="background-color: #CEFF68;"><a class="dropdown-item"
-                                href="{{ route('register') }}">Registrati</a></button>
+                            class="btn d-flex" style="background-color: #CEFF68; border:#CEFF68"><a class="dropdown-item"
+                                href="{{ route('register') }}">Sign In</a></button>
 
                     </div>
                 </div>

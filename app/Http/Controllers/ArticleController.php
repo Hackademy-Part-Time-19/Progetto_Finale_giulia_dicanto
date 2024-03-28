@@ -56,7 +56,7 @@ class ArticleController extends Controller
             'subtitle' => $request->input("subtitle"),
             'body' => $request->input("body"),
             'image' => $request->file('image')->store('image'),
-            'category_name' => $request->category,
+            'category_id' => $request->category,
 
         ]);
         $article = Article::create($request->all());

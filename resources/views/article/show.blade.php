@@ -1,7 +1,5 @@
 <x-layout.main>
-    <h1>Sono l'elenco provvisorio</h1>
-
-    <div class="container-fluid p-5 bg-info text center text-white">
+    <div class="container-fluid p-5 bg-info text-center text-white">
 
         <div class="row justify-content-center">
             <h1 class="display-1">
@@ -19,7 +17,7 @@
                 <div class="text-center">
                     <h2>{{ $article->subtitle }}</h2>
                     <div class="my-3 text-muted fst-italic"></div>
-                    <p>Creato da {{ $artilce->user->name }} il {{ $article->created_at->format('d/m/Y') }}</p>
+                    <p>Creato da {{ $article->user->name }}, il {{ $article->created_at->format('d/m/Y') }}</p>
                 </div>
             </div>
             <hr>
