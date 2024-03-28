@@ -1,4 +1,4 @@
-<x-layouts.main>
+<x-layout.main>
     <h1>Sono l'elenco provvisorio</h1>
 
     <div class="container-fluid p-5 bg-info text center text-white">
@@ -32,4 +32,4 @@
         </div>
     </div>
 
-</x-layouts.main>
+</x-layout.main>

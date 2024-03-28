@@ -60,12 +60,12 @@ class ArticleController extends Controller
 
         ]);
         $article = Article::create($request->all());
-        $article->categories()->attach($request->categories);
+        $article->category()->attach($request->categories);
 
         if ($request->hasFile('image')) {
             $path = "public/" . $article->id . "/";
-            $name = uniqid() . "." . $article->file('image')->extension();
-            $article->file('image')->storeAs($path, $name);
+            $name = uniqid() . "." . $request->file('image')->extension();
+            $request->file('image')->storeAs($path, $name);
             $article->image = $path . $name;
             $article->save();
         }
