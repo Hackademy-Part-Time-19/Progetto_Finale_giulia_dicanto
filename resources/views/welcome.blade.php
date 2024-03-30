@@ -12,30 +12,28 @@
             {{ session('message') }}
         </div>
     @endif
-    <div class="row">
+    <div class="row" style="background: #2a2a2a">
+        <h5>qui andrebbe il carousel</h5>
         <x-carousel></x-carousel>
     </div>
-    <div class="container my-5">
+    {{-- <div class="container my-5">
         <div class="row justify-content-center">
             @foreach ($articles as $article)
                 <div class="col-12 col-md-3">
                     <x-card 
-                        :title="$article->title" 
-                        :subtitle="$article->subtitle" 
-                        :image="$article->image" 
-                        {{-- :category="$article->category->name"  --}}
-                        :data="$article->created_at->format('d/m/Y')"
-                        :user="$article->user->name" 
-                        :url="route('article.show', compact('article'))">
+                    :title="$article->title" 
+                    :subtitle="$article->subtitle" 
+                    :image="$article->image" 
+                    :category="$article->category->name" 
+                    :data="$article->created_at->format('d/m/Y')" 
+                    :user="$article->user->name" :url="route('article.show', compact('article'))">
                     </x-card>
-
-
                 </div>
             @endforeach
         </div>
+    </div> --}}
+
+    <div class="container my5">
+        <livewire:search/>
     </div>
 </x-layout.main>
-
-<x-layout.footer>
-    
-</x-layout.footer>
