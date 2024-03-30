@@ -4,8 +4,9 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+use App\Models\Category;
+
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -16,6 +17,14 @@ return new class extends Migration
             $table->string('name');
             $table->timestamps();
         });
+
+        $categories = ['Full Body', 'Abs', 'Booty', 'Upper Body', 'Legs', 'Shape&Tone'];
+
+        foreach ($categories as $category) {
+            Category::create([
+                'name' => $category,
+            ]);
+        }
     }
 
     /**
