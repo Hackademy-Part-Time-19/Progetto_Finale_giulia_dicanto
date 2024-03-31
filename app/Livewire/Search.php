@@ -8,8 +8,8 @@ use Livewire\Component;
 
 class Search extends Component
 {
-    public $users = [];
-    public $search = "";
+    public $users;
+    public $search ="";
     public function render()
     {
         $this->users= User::where('name', 'like', '%' . $this->search . '%')->get();
