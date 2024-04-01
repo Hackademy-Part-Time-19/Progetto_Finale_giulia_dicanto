@@ -44,18 +44,12 @@
             </ul>
 
             <!-- Right nav/link -->
-            <div class="container-fluid justify-content-end col-md-3">
+            <div class="container justify-content-end col-md-3">
 
-                <div style="display: flex; align-items: center; justify-content: end;">
-
-                    <form style="align-items: center; justify-content: center;" class="d-flex">
+                    <form style="align-items: start; justify-content: end;" class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button type="summit" class="btn btn-outline-secondary">Search</button>
                     </form>
-                </div>
-                <div style="display: flex; align-items: center;">
-                </div>
-
+            
             </div>
 
             @auth
@@ -88,18 +82,17 @@
 
 
             @guest
-                <div style="flex:0.5; display: flex; align-items: center; justify-content: center;">
-                    <div style="margin: 5px">
-                        <button stye="flex:1; padding: 5px; margin-right: 5px;" type="button" class="btn text-white"
-                            style="background-color:#2a2a2a";><a class="dropdown-item"
-                                href="{{ route('login') }}">Login</a></button>
-                    </div>
-                    <div>
-                        <button stye="flex:1; padding: 5px; margin- left: 5px; background: black;" type="button"
-                            class="btn d-flex" style="background-color: #CEFF68; border:#CEFF68"><a class="dropdown-item"
-                                href="{{ route('register') }}">Sign In</a></button>
-
-                    </div>
+                <div style="flex:0.5; display: flex; align-items: center; justify-content: start;">
+                        <button class="button-login" style="margin: 0.2em 0.2em;">
+                            <a class="dropdown-item"
+                                href="{{ route('login') }}">Login</a>
+                        </button>
+                    
+                   
+                        <button class="button-signup" style="margin: 0.2em 0.2em;">
+                            <a class="dropdown-item"
+                                href="{{ route('register') }}">Sign Up</a>
+                        </button>
                 </div>
             @endguest
 

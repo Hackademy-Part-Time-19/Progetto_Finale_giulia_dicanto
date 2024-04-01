@@ -21,14 +21,141 @@ p {
   color: #2a2a2a;
 
 }
+a:link,a:visited {
+  background-color: transparent;
+  text-decoration: none;
+  padding: 10px 15px;
+}
+
+a:hover, a:active {
+  color:#C0B6FF;
+  background-color: transparent;
+  text-decoration: none;
+  padding: 10px 15px;
+}
+
 .color_purple {
 color: #C0B6FF;
 }
+
+.topright {
+  position: relative;
+  top:0%;
+  right: 16px;
+}
+
+.button-login {
+  background-color: transparent;
+  color: #2a2a2a;
+  width: 6em;
+  height: 2.9em;
+  border: none;
+  border-radius: 11px;
+  text-align: center;
+  font-weight: 800;
+  transition: all 0.6s ease;
+}
+
+.button-login:hover {
+  background-color: #C0B6FF;
+  color: #000
+}
+
+.button-signup {
+  background-color: #CEFF68;
+  color: #2a2a2a;
+  width: 6em;
+  height: 2.9em;
+  border: none;
+  border-radius: 11px;
+  text-align: center;
+  transition: all 0.6s ease;
+}
+
+.button-signup:hover {
+  background-color: #C0B6FF;
+  color: #000
+}
+
+
+.button {
+  background-color: #CEFF68;
+  color: #2a2a2a;
+  width: 11em;
+  height: 2.9em;
+  border: none;
+  border-radius: 11px;
+  text-align: right;
+  transition: all 0.6s ease;
+}
+
+.button:hover {
+  background-color: #C0B6FF;
+  color: #000
+}
+
+.button svg {
+  width: 1.6em;
+  margin: -0.2em 0.8em 1em;
+  position: absolute;
+  display: flex;
+  transition: all 0.6s ease;
+}
+
+.button:hover svg {
+  transform: translateX(5px);
+}
+
+.text {
+  margin: 0 1.5em
+}
+
+.buttondark {
+  background-color: #2a2a2a;
+  color: #F8F9FA;
+  width: 11em;
+  height: 2.9em;
+  border: none;
+  border-radius: 11px;
+  text-align: right;
+  transition: all 0.6s ease;
+}
+
+.buttondark:hover {
+  background-color: #C0B6FF;
+  color: #000
+}
+
+.buttondark svg {
+  width: 1.6em;
+  margin: -0.2em 0.8em 1em;
+  position: absolute;
+  display: flex;
+  transition: all 0.6s ease;
+}
+
+.buttondark:hover svg {
+  transform: translateX(5px);
+}
+
+.text {
+  margin: 0 1.5em
+}
+
 .btn-primary,
 .btn-primary:hover,
 .btn-primary:active,
 .btn-primary:visited {
   background-color: #BFB6FF;
+}
+
+.btn-call-to-action-dark,
+.btn-call-to-action-dark:hover,
+.btn-call-to-action-dark:active,
+.btn-call-to-action-dark:visited {
+  background-color: #2a2a2a;
+  border-radius:2em;
+  color: #F8F9FA;
 }
 
 .btn-info,
@@ -51,19 +178,20 @@ color: #C0B6FF;
 
 .card-coaches {
   width: 320px;
-  background: #fff480;
-  color: black;
+  background: #ffff;
+  color:#2a2a2a;
   position: relative;
   border-radius: 2.5em;
-  padding: 2em;
+  padding: 3em;
   transition: transform 0.4s ease;
+  margin:7px;
 }
 
 .card-coaches .card-content {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 5em;
+  gap: 2em;
   height: 100%;
   transition: transform 0.4s ease;
 }
@@ -82,7 +210,7 @@ color: #C0B6FF;
 }
 
 .card-coaches .card-top p, .card-coaches .card-bottom p {
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .card-coaches .card-bottom {

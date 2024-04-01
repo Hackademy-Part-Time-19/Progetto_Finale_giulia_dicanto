@@ -1,11 +1,4 @@
 <x-layout.main>
-    {{-- <div class="container-fluid p-5 bg-info text-center text-white">
-        <div class="row justify-content-center">
-            <h2 class="display-1">
-                The Aulab Post
-            </h2>
-        </div>
-    </div> --}}
 
     @if (session('message'))
         <div class="alert alert-success text-center">
@@ -29,7 +22,7 @@
             @endforeach
         </div>
     </div> --}}
-    <div class="row justify-content-center" style="padding:1.8em;">
+    <div class="row justify-content-center" style="padding:1.8em;margin-left: 1em; margin-top: 30px;">
         <h6>
             News and Updates
         </h6>
@@ -37,15 +30,28 @@
             Continua il tuo viaggio nel <span class="color_purple">Fitness</span>
         </h1>
     </div>
-    <div class="row text-center justify-content-center">
-        <livewire:search />
-        <div style="diplay-flex; background-color: #CEFF68; width:40%; margin-top:10px; border-radius:2em;">
-            <a href="#" class="btn btn-info">Scopri di più</a>
+    <div class="row justify-content-center" style="padding:1.8em; margin-left: 1em;">
+        <div class="container-fluid">
+            <livewire:search />
+        </div>
+
+        <div style="margin-left: 6em;">
+
+            <button class="button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
+                </svg>
+                <div class="text">
+                    Scopri di più
+                </div>
+            </button>
         </div>
     </div>
 
 
-    <div class="row justify-content-center" style="padding:1.8em;">
+    <div class="row justify-content-center" style="padding:1.8em; margin-left: 1em; margin-top: 30px;">
         <h6>
             Special Program
         </h6>
@@ -53,15 +59,14 @@
             Allenati con i migliori <span class="color_purple">Coaches</span>
         </h1>
     </div>
-    <div class="row justify-content-center text-left mb-3 display-flex"
-        style="background: #2a2a2a; color:#F8F9FA; height: 30em">
-        <h3 style="padding:1em; color:#F8F9FA;">Card-coaches</h3>
+    <div class="row justify-content-center mb-3 d-flex;" style="padding:1em;">
+
         {{-- #1 --}}
         <div class="card-coaches">
             <div class="card-content">
                 <div class="card-top">
                     <span class="card-title">01.</span>
-                    <p>Lightning.</p>
+                    <p>Hyrox.</p>
                 </div>
                 <div class="card-bottom">
                     <p>Hover Me?</p>
@@ -79,13 +84,20 @@
                     </path>
                 </svg>
             </div>
+            <div class="card-bottom border-top" style="margin-top:5px; padding-top:5px;">
+                <p>by Glennis Balsbaugh</p>
+
+                <p>40 EUR/m</p>
+
+            </div>
         </div>
+
         {{-- #2 --}}
         <div class="card-coaches">
             <div class="card-content">
                 <div class="card-top">
-                    <span class="card-title">01.</span>
-                    <p>Lightning.</p>
+                    <span class="card-title">02.</span>
+                    <p>Triathlon.</p>
                 </div>
                 <div class="card-bottom">
                     <p>Hover Me?</p>
@@ -102,14 +114,20 @@
                         d="m393-165 279-335H492l36-286-253 366h154l-36 255Zm-73 85 40-280H160l360-520h80l-40 320h240L400-80h-80Zm153-395Z">
                     </path>
                 </svg>
+            </div>
+            <div class="card-bottom border-top" style="margin-top:5px; padding-top:5px;">
+                <p>by Marco Lariz</p>
+
+                <p>60 EUR/m</p>
+
             </div>
         </div>
         {{-- #3 --}}
         <div class="card-coaches">
             <div class="card-content">
                 <div class="card-top">
-                    <span class="card-title">01.</span>
-                    <p>Lightning.</p>
+                    <span class="card-title">03.</span>
+                    <p>Functional Training.</p>
                 </div>
                 <div class="card-bottom">
                     <p>Hover Me?</p>
@@ -127,9 +145,77 @@
                     </path>
                 </svg>
             </div>
+            <div class="card-bottom border-top" style="margin-top:5px; padding-top:5px;">
+                <p>by Michel Wirtanen</p>
+
+                <p>50 EUR/m</p>
+
+            </div>
         </div>
-        
+
+        {{-- #4 --}}
+        <div class="card-coaches">
+            <div class="card-content">
+                <div class="card-top">
+                    <span class="card-title">03.</span>
+                    <p>Yoga.</p>
+                </div>
+                <div class="card-bottom">
+                    <p>Hover Me?</p>
+                    <svg width="32" viewBox="0 -960 960 960" height="32" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M226-160q-28 0-47-19t-19-47q0-28 19-47t47-19q28 0 47 19t19 47q0 28-19 47t-47 19Zm254 0q-28 0-47-19t-19-47q0-28 19-47t47-19q28 0 47 19t19 47q0 28-19 47t-47 19Zm254 0q-28 0-47-19t-19-47q0-28 19-47t47-19q28 0 47 19t19 47q0 28-19 47t-47 19ZM226-414q-28 0-47-19t-19-47q0-28 19-47t47-19q28 0 47 19t19 47q0 28-19 47t-47 19Zm254 0q-28 0-47-19t-19-47q0-28 19-47t47-19q28 0 47 19t19 47q0 28-19 47t-47 19Zm254 0q-28 0-47-19t-19-47q0-28 19-47t47-19q28 0 47 19t19 47q0 28-19 47t-47 19ZM226-668q-28 0-47-19t-19-47q0-28 19-47t47-19q28 0 47 19t19 47q0 28-19 47t-47 19Zm254 0q-28 0-47-19t-19-47q0-28 19-47t47-19q28 0 47 19t19 47q0 28-19 47t-47 19Zm254 0q-28 0-47-19t-19-47q0-28 19-47t47-19q28 0 47 19t19 47q0 28-19 47t-47 19Z">
+                        </path>
+                    </svg>
+                </div>
+            </div>
+            <div class="card-image">
+                <svg width="48" viewBox="0 -960 960 960" height="48" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="m393-165 279-335H492l36-286-253 366h154l-36 255Zm-73 85 40-280H160l360-520h80l-40 320h240L400-80h-80Zm153-395Z">
+                    </path>
+                </svg>
+            </div>
+            <div class="card-bottom border-top" style="margin-top:5px; padding-top:5px;">
+                <p>by Alysia Derome</p>
+
+                <p>30 EUR/m</p>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="container d-flex" style="border-radius: 2em; background: #f3f3f3; height: 30vh">
+
+        <div class="col-md-7 justify-content-center"
+            style="padding:3em; background: #f3f3f3; border-radius: 2em; justify-content-center;">
+            <h1>
+                Make it <span class="color_purple">Easy</span>
+            </h1>
+            <h6>
+                Contattaci oggi stesso per raggiungere i tuoi obiettivi con un allenamento personalizzato.
+            </h6>
+            <div>
+
+                <button class="buttondark">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
+                    </svg>
+                    <div class="text">
+                        Scopri di più
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <div class="col-md-5" style="border-radius: 2em; background: #f3f3f3;">
+            <img class="img-fluid float-end" alt="Responsive image" src="./img/Healthy habit-pana.png"
+                data-holder-rendered="true" style="height:100%">
+        </div>
     </div>
 
-
 </x-layout.main>
+
+<x-layout.footer></x-layout.footer>
