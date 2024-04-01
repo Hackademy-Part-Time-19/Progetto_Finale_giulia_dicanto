@@ -2,8 +2,9 @@
 
     <!-- Left nav/link -->
     <div class="container-fluid p-1" style="margin-left: 40px; margin-right: 40px;">
+        <a href="{{ route('homepage') }}">
         <img class="d-inline-block align-text-top" style="height: 85px; margin-right: 15px;"
-            src="/img/The-Aulab-Post-logobn-320x320.png" alt="logo the aulab post">
+            src="/img/The-Aulab-Post-logobn-320x320.png" alt="logo the aulab post"></a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,7 +16,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" style="color: rgb(48, 46, 46);" href="#" role="button"
+                    <a class="nav-link dropdown-toggle" style="color: rgb(48, 46, 46);" href="{{ route('homepage') }}" role="button"
                         data-bs-toggle="dropdown">TheAulabPOST</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Chi Siamo</a></li>

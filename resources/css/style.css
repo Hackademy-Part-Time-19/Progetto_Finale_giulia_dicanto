@@ -1,23 +1,40 @@
-*
+* body {
+  background-color:#F8F9FA;
+}
+
 h1,
 h2,
 h3,
-h4,
-h5 {
+h4
+ {
   font-family: "Oswald", sans-serif;
+  color: #2a2a2a
+}
+h5{
+  font-family: "Mukta", sans-serif;
+  color: #2a2a2a;
+
 }
 p {
 
   font-family: "Mukta", sans-serif;
-  color:#2a2a2a;
+  color: #2a2a2a;
 
 }
-
-.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+.color_purple {
+color: #C0B6FF;
+}
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
   background-color: #BFB6FF;
 }
 
-.btn-info, .btn-info:hover, .btn-info:active, .btn-info:visited {
+.btn-info,
+.btn-info:hover,
+.btn-info:active,
+.btn-info:visited {
   background-color: #CEFF68;
   border: #CEFF68;
 }
@@ -26,6 +43,86 @@ p {
   background-color: #CEFF68;
   border: #CEFF68;
 }
+
+.card:hover {
+  cursor: pointer;
+  transform: scale(0.97);
+}
+
+.card-coaches {
+  width: 320px;
+  background: #fff480;
+  color: black;
+  position: relative;
+  border-radius: 2.5em;
+  padding: 2em;
+  transition: transform 0.4s ease;
+}
+
+.card-coaches .card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 5em;
+  height: 100%;
+  transition: transform 0.4s ease;
+}
+
+.card-coaches .card-top, .card-coaches .card-bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-coaches .card-top p, .card-coaches .card-top .card-title, .card-coaches .card-bottom p, .card-coaches .card-bottom .card-title {
+  margin: 0;
+}
+
+.card-coaches .card-title {
+  font-weight: bold;
+}
+
+.card-coaches .card-top p, .card-coaches .card-bottom p {
+  font-weight: 600;
+}
+
+.card-coaches .card-bottom {
+  align-items: flex-end;
+}
+
+.card-coaches .card-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.card-coaches .card-coaches-image svg {
+  width: 4em;
+  height: 4em;
+  transition: transform 0.4s ease;
+}
+
+.card-coaches:hover {
+  cursor: pointer;
+  transform: scale(0.97);
+}
+
+.card:hover .card-content {
+  transform: scale(0.96);
+}
+
+.card:hover .card-image svg {
+  transform: scale(1.05);
+}
+
+.card:active {
+  transform: scale(0.9);
+}
+
 /* footer */
 
 /* .card svg {
