@@ -5,15 +5,14 @@ namespace App\Livewire;
 use App\Models\Post;
 use App\Models\User;
 use Livewire\Component;
-use Livewire\Attributes\Url;
-use Livewire\WithPagination;
+// use Livewire\Attributes\Url;
+// use Livewire\WithPagination;
 
 class Search extends Component
 {
-    use WithPagination;
+    // use WithPagination;
+     // #[Url]
     public $users;
-
-    // #[Url]
     public $search ="";
     public function render()
     {  if ($this->search == "") {
@@ -29,7 +28,7 @@ class Search extends Component
     //         $this->users= Post::where('user_id', 'like', '%' . $this->search . '%')->orWhere('body','like', '%' . $this->search . '%')->orderBy ('created_at','DESC');
     //     }
 
-        return view('livewire.search', ['post'=>Post::paginate(4)]);
+        return view('livewire.search');
     }
 
 }
