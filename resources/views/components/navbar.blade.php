@@ -58,7 +58,7 @@
 
                     <div class="container">
                         <a class="nav-link" href="#" role="button">
-                            Benvenuto {{ Auth::user()->name }}
+                            Ciao {{ Auth::user()->name }}
                         </a>
                         <a class="nav-link" href="{{ route('article.create') }}"><button type="submit" class="btn nav-link"
                                 style="padding:2px; border: #CEFF68;">

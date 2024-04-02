@@ -22,7 +22,7 @@
             @endforeach
         </div>
     </div> --}}
-    <div class="row justify-content-center" style="padding:1.8em;margin-left: 1em; margin-top: 30px;">
+    <div class="row justify-content-center mb-3 d-flex;" style="padding:1.8em;margin-left: 1em; margin-top: 30px;">
         <h6>
             News and Updates
         </h6>
@@ -30,14 +30,14 @@
             Continua il tuo viaggio nel <span class="color_purple">Fitness</span>
         </h1>
     </div>
-    <div class="row justify-content-center" style="padding:1.8em; margin-left: 1em;">
+    <div class="row justify-content-center d-flex" style="padding:1.8em; margin-left: 1em;">
         <div class="container-fluid">
             <livewire:search />
         </div>
 
         <div style="margin-left: 6em;">
 
-            <button class="button">
+            <button class="button-call">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -210,9 +210,9 @@
             </div>
         </div>
 
-        <div class="col-md-5" style="border-radius: 2em; background: #f3f3f3;">
-            <img class="img-fluid float-end" alt="Responsive image" src="./img/Healthy habit-pana.png"
-                data-holder-rendered="true" style="height:100%">
+        <div class="col-md-5" style="border-radius: 2em; background: #f3f3f3; margin:none">
+            <img class="img-fluid my-3" alt="Responsive image" src="./img/Healthy habit-pana.png"
+                data-holder-rendered="true" style="height:100%; object-position:top; object-fit:cover">
         </div>
     </div>
 
