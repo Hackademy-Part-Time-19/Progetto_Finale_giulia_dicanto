@@ -12,34 +12,42 @@ class Form extends Component
     public $title = '';
     public $subtitle = '';
     public $image = '';
-    public $category_id = '';
+    public $category = '';
 
-    protected $rules = [
-        'title' => 'required|max:40',
-        'subtitle' => 'required|min:5',
-        'description' => 'required|max:255',
-        'category_id' => 'required',
-        'body' => 'required|string|min:10',
-        'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-       /*  'image' => 'required|image|max:1024', */
-    ];
-
-    protected $messages = [
-        'title.required' => 'Il campo titolo è obbligatorio',
-        'title.max' => 'Il campo titolo deve essere lungo al massimo 40 caratteri',
-        'subtitle.required' => 'Il campo prezzo è obbligatorio',
-        'price.min' => 'Il campo prezzo deve essere minimo di 5 caratteri',
-        'body.required' => 'Il campo testo è obbligatorio',
-        'description.min' => 'Il campo testo deve essere lungo minimo 10 caratteri',
-        'category_id.required' => 'Il campo categoria è obbligatorio',
-        /* 'image.required' => 'Il campo :attribute è obbligatorio',
-        'image.image' => 'Il campo :attribute deve essere un\'immagine',
-        'image.max' => 'Il campo :attribute deve essere lungo al massimo 1024 caratteri', */
-    ];
-    
-    public function mount()
+    public function mount($post)
     {
+        $this->title=$post->title;
+        $this->subtitle=$post->subtitle;
+    }
+    public function createPost()
+    {
+        // Validazione dei dati del form
+        $validatedData = $this->validate([
+            'image' => 'required|image|max:2048', // Max 2MB
+            'title' => 'required|max:255',
+            'subtitle' => 'required',
+            'body' => 'required',
+            'category' => 'required',
+        ]);
 
+        // Salva l'immagine nel filesystem di Laravel
+        $imagePath = $this->image->store('images');
+
+        // Crea il post nel database
+        Post::create([
+            'image' => $imagePath,
+            'title' => $validatedData['title'],
+            'subtitle' => $validatedData['subtitle'],
+            'body' => $validatedData['body'],
+            'category' => $validatedData['category'],
+            'user_id' => Auth::id(),
+        ]);
+
+        // Pulisci i campi del form dopo aver creato il post
+        $this->reset(['image', 'title', 'subtitle', 'body', 'category']);
+
+        // Aggiorna la vista per visualizzare il nuovo post
+        $this->emit('postCreated');
     }
 
     public function save()
@@ -47,14 +55,14 @@ class Form extends Component
         Post::create(
             $this->only(['title', 'subtitle'])
         );
- 
+
         session()->flash('status', 'Post successfully updated.');
- 
-        return $this->redirect('/posts');
+
+        $this->redirect(Form::class);
     }
     public function render()
     {
         // return view('livewire.post', compact ('users'));
-        return view ('livewire.post', ['categories'=>Category::All()]);
+        return view('livewire.post');
     }
 }

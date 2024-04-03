@@ -12,21 +12,14 @@ class Search extends Component
 {
     // use WithPagination;
      // #[Url]
-    public $users;
+    public $posts;
     public $search ="";
     public function render()
     {  if ($this->search == "") {
-         $this->users = User::all();
+         $this->posts = Post::all();
     } else {
-        $this->users= User::where('name', 'like', '%' . $this->search . '%')->orderBy ('created_at','DESC')->get();
+        $this->posts= Post::where('name', 'like', '%' . $this->search . '%')->orWhere('body','like', '%' . $this->search . '%')->orderBy ('created_at','DESC')->get();
     }
-    
-    // {
-    //     if ($this->search == "") {
-    //         $this->users = Post::paginate(4);
-    //     } else {
-    //         $this->users= Post::where('user_id', 'like', '%' . $this->search . '%')->orWhere('body','like', '%' . $this->search . '%')->orderBy ('created_at','DESC');
-    //     }
 
         return view('livewire.search');
     }

@@ -377,7 +377,7 @@
     <div class="col-12 col-sm-4 col-md-4 flex-wrap"
         style="align-items:center; justify-content: center; border-radius:2em;">
         <div class="container-social col-12 col-sm-3 col-md-4 flex wrap">
-            < <div class="container-fluid pt-3" style="justify-content: left;">
+            <div class="container-fluid pt-3" style="justify-content: left;">
                 <p style="color: #f4f7f6; font-size: 14px; margin-right: 10px; flex: 1;"> Rimani sempre aggiornato
                     sulle ultime novità. <br>Iscriviti alla Newsletter!</p>
 
@@ -385,11 +385,14 @@
                     <div class="search-group">
                         <input required="" type="text" name="text" autocomplete="on" class="input">
                         <label class="enter-label">E-Mail</label>
-                        
-                <button class="button-signup" style="margin: 0.2em 0.2em;">
-                    <a href="{{ route('register') }}">Iscriviti</a>
-                </button>
-        </div>
 
-        /div>
+                        <button class="button-signup" style="margin: 0.2em 0.2em;">
+                            <a href="{{ route('register') }}">Iscriviti</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </footer>

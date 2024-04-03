@@ -18,10 +18,11 @@
 
     <link rel="icon" href="{{ asset('favicon.ico') }}">
 
-
+   
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <title>The Aulab Post - Giulia</title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+   
 </head>
 
 <body>
@@ -29,8 +30,6 @@
     <div class="min-vh-100">
         {{ $slot }}
     </div>
-
-
 </body>
 
 </html>

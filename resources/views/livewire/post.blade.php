@@ -19,7 +19,7 @@
                 </div>
             @endif
 
-            <form action="" class="card p-5 shadow" enctype="multipart/form-data">
+            <form wire:submit="save" class="card p-5 shadow" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                     <label for="title" class="form-label">Titolo</label>
@@ -35,7 +35,7 @@
                 </div>
 
                 <div class="mt-2 d-flex justify-content-center">
-                    <button class="btn btn-info">Inserisci articolo</button>
+                    <button class="btn btn-info" type="submit">Inserisci articolo</button>
                 </div>
             </form>
         </div>
