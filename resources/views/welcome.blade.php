@@ -7,24 +7,7 @@
     @endif
 
     <x-carousel></x-carousel>
-    <div class="container my-5">
-        <div class="row justify-content-center">
-            @foreach ($articles as $article)
-                <div class="col-12 col-md-3">
-                    <x-card 
-                    :title="$article->title"
-                    :subtitle="$article->subtitle"
-                    :image="$article->image"
-                    :category="$article->category->name"
-                    :data="$article->created_at->format('d/m/Y')"
-                    :user="$article->user->name" 
-                    :url="route('article.show', compact('article'))"
-                    />
-                </div>
-            @endforeach
-        </div>
-    </div>
-
+  
     <div class="row justify-content-center mb-3 d-flex;" style="padding:1.8em;margin-left: 1em; margin-top: 30px;">
         <h6>
             News and Updates
@@ -33,12 +16,27 @@
             Continua il tuo viaggio nel <span class="color_purple">Fitness</span>
         </h1>
     </div>
-    <div class="row justify-content-center d-flex" style="padding:1.8em; margin-left: 1em;">
-        <div class="container-fluid">
-            <livewire:search />
-        </div>
 
-        <div style="margin-left: 6em;">
+        <div class="container my-5 border" style="padding:1.8em; margin-left: 1em;">
+            <div class="row justify-content-center">
+                @foreach ($articles as $article)
+                    <div class="col-12 col-md-3">
+                        <x-card 
+                        :title="$article->title"
+                        :subtitle="$article->subtitle"
+                        :image="$article->image"
+                        :category="$article->category->name"
+                        :data="$article->created_at->format('d/m/Y')"
+                        :user="$article->user->name" 
+                        :url="route('article.show', compact('article'))"
+                        />
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    
+
+        <div class="row justify-content-left" style="margin:2em 2em;">
 
             <button class="button-call">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"

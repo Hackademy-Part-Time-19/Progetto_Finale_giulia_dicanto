@@ -68,9 +68,9 @@
                         <a class="nav-link" href="{{ route('article.create') }}"><button type="submit" class="btn nav-link"
                                 style="padding:2px; border: #CEFF68;">
                             </button>Crea il tuo Post</a>
-                        <a class="nav-link" href="{{ route('homepage') }}"><button type="submit" class="btn nav-link"
+                        <a class="nav-link" href="{{ route('article.index') }}"><button type="submit" class="btn nav-link"
                                 style="padding:2px; border: #CEFF68;">
-                            </button>I miei Articoli</a>
+                            </button>Tutti gli articoli Articoli</a>
 
                         <form action="{{ route('logout') }}" id="logout-form" method="POST">
 

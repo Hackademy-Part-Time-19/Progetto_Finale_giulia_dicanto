@@ -13,7 +13,7 @@
            
 
             <div class="col-12 col-md-8">
-                <img src="{{ Storage:: url($article->image) }}" alt="" class="img-fluid my-3">
+                <img src="{{Storage:: url($image) }}" alt="" class="img-fluid my-3">
                 <div class="text-center">
                     <h2>{{ $article->subtitle }}</h2>
                     <div class="my-3 text-muted fst-italic"></div>
@@ -31,3 +31,4 @@
     </div>
 
 </x-layout.main>
+
