@@ -7,7 +7,7 @@
         </div>
     </div>
 
-    <div class="container my-5 border" style="padding:1.8em; margin-left: 1em;">
+    <div class="row my-5 justify-content-center" style="padding:1.8em; margin-left: 1em;">
         <div class="row justify-content-center">
             @foreach ($articles as $article)
                 <div class="col-12 col-md-3">

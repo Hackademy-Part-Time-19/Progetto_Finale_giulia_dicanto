@@ -33,6 +33,22 @@ color: #C0B6FF;
   top:0%;
   right: 16px;
 }
+.filter-btn {
+  background-color: transparent;
+  color: #2a2a2a;
+  width: 8em;
+  height: 2.9em;
+  border: none;
+  border-radius: 11px;
+  text-align: center;
+  transition: all 0.6s ease;
+  text-decoration: none;
+}
+
+.filter-btn:hover {
+  background-color: #EDEEF7;
+  color: #2a2a2a
+}
 
 .button-login {
   background-color: transparent;
@@ -48,7 +64,7 @@ color: #C0B6FF;
 
 .button-login:hover {
   background-color: #C0B6FF;
-  color: #000
+  color: #2a2a2a
 }
 
 .button-signup {
@@ -64,7 +80,7 @@ color: #C0B6FF;
 
 .button-signup:hover {
   background-color: #C0B6FF;
-  color: #000
+  color: #2a2a2a
 }
 
 
@@ -81,7 +97,7 @@ color: #C0B6FF;
 
 .button-call:hover {
   background-color: #C0B6FF;
-  color: #000
+  color: #2a2a2a
 }
 
 .button-call svg {
@@ -131,6 +147,7 @@ color: #C0B6FF;
 .text {
   margin: 0 1.5em
 }
+
 
 .btn-primary,
 .btn-primary:hover,

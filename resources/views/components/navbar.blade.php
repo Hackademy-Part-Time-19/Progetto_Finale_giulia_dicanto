@@ -34,7 +34,8 @@
                         <li><a class="dropdown-item" href="#">Category4</a></li>
                     </ul>
                 </li>
-
+                <li> <a class="nav-link" href="{{ route('article.index') }}" style="color: rgb(48, 46, 46);">Blog</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" style="color: rgb(48, 46, 46);" href="#">Eventi</a>
                 </li>
@@ -44,40 +45,29 @@
             </ul>
 
             <!-- Right nav/link -->
-            <div class="container justify-content-end col-md-3">
-
-                <form style="align-items: start; justify-content: end;" class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-search" viewBox="0 0 16 16">
-                        <path
-                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                    </svg>
-                </form>
-
-            </div>
-
             @auth
                 <div class="d-flex">
 
 
-                    <div class="container">
+                    <div class="container col-8 d-flex justify-content-between align-items-center">
                         <a class="nav-link" href="#" role="button">
                             Ciao {{ Auth::user()->name }}
                         </a>
-                        <a class="nav-link" href="{{ route('article.create') }}"><button type="submit" class="btn nav-link"
-                                style="padding:2px; border: #CEFF68;">
-                            </button>Crea il tuo Post</a>
-                        <a class="nav-link" href="{{ route('article.index') }}"><button type="submit" class="btn nav-link"
-                                style="padding:2px; border: #CEFF68;">
-                            </button>Tutti gli articoli Articoli</a>
-
+                        <a class="nav-link" href="{{ route('article.create') }}" style="margin-left:5px"><span
+                                class="color_purple" style="font-weight: 500;">Crea il tuo post</span></a>
                         <form action="{{ route('logout') }}" id="logout-form" method="POST">
 
-
                     </div>
+
                     @csrf
-                    <div class="justify-content-center align-item-center">
+                    <div class="col-6 d-flex justify-content-center align-items-center">
+                        <form action="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                                class="bi bi-search" viewBox="0 0 16 16" style="margin-right:15px;">
+                                <path
+                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                            </svg>
+                        </form>
                         <button type="submit" class="btn nav-link text-white"
                             style="margin:5px; padding:5px; background-color:#2a2a2a">Logout <svg
                                 xmlns="http://www.w3.org/2000/svg" width="20" height="20"
@@ -95,18 +85,27 @@
 
 
             @guest
-                <div style="flex:0.5; display: flex; align-items: center; justify-content: start;">
-                    <button class="button-login" style="margin: 0.2em 0.2em;">
-                        <a class="dropdown-item" href="{{ route('login') }}">Login</a>
-                    </button>
+                <div class="col-6 d-flex justify-content-center align-items-center">
+
+                    <form action="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                            class="bi bi-search" viewBox="0 0 16 16" style="margin-right:15px;">
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                        </svg>
+                    </form>
+                    <div style="flex:0.5; display: flex; align-items: center; justify-content: start;">
+                        <button class="button-login" style="margin: 0.2em 0.2em;">
+                            <a class="dropdown-item" href="{{ route('login') }}">Login</a>
+                        </button>
 
 
-                    <button class="button-signup" style="margin: 0.2em 0.2em;">
-                        <a class="dropdown-item" href="{{ route('register') }}">Sign Up</a>
-                    </button>
-                </div>
-            @endguest
+                        <button class="button-signup" style="margin: 0.2em 0.2em;">
+                            <a class="dropdown-item" href="{{ route('register') }}">Sign Up</a>
+                        </button>
+                    </div>
+                @endguest
 
 
-        </div>
+            </div>
 </nav>

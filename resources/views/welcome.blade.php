@@ -7,8 +7,17 @@
     @endif
 
     <x-carousel></x-carousel>
-  
-    <div class="row justify-content-center mb-3 d-flex;" style="padding:1.8em;margin-left: 1em; margin-top: 30px;">
+    <div class="nav-scroller py-1 mb-2 border-bottom" style="margin-top: 15px">
+        <nav class="nav d-flex justify-content-center">
+            <a class="p-2 text-muted filter-btn" href="#">Full Body</a>
+            <a class="p-2 text-muted filter-btn" href="#">Abs</a>
+            <a class="p-2 text-muted filter-btn" href="#">Booty</a>
+            <a class="p-2 text-muted filter-btn" href="#">Upper Body</a>
+            <a class="p-2 text-muted filter-btn" href="#">Legs</a>
+            <a class="p-2 text-muted filter-btn" href="#">Shape&Tone</a>
+        </nav>
+    </div>
+    <div class="row justify-content-center mb-3 d-flex;" style="padding:1.8em; margin-left: 1em; margin-top: 15px;">
         <h6>
             News and Updates
         </h6>
@@ -17,25 +26,15 @@
         </h1>
     </div>
 
-        <div class="container my-5 border" style="padding:1.8em; margin-left: 1em;">
-            <div class="row justify-content-center">
-                @foreach ($articles as $article)
-                    <div class="col-12 col-md-3">
-                        <x-card 
-                        :title="$article->title"
-                        :subtitle="$article->subtitle"
-                        :image="$article->image"
-                        :category="$article->category->name"
-                        :data="$article->created_at->format('d/m/Y')"
-                        :user="$article->user->name" 
-                        :url="route('article.show', compact('article'))"
-                        />
-                    </div>
-                @endforeach
-            </div>
+    <div class="row my-5 justify-content-center" style="padding:1em; margin-left: 1em;">
+        <div class="row justify-content-center">
+            @foreach ($articles as $article)
+                <div class="col-12 col-md-3">
+                    <x-card :title="$article->title" :subtitle="$article->subtitle" :image="$article->image" :category="$article->category->name" :data="$article->created_at->format('d/m/Y')"
+                        :user="$article->user->name" :url="route('article.show', compact('article'))" />
+                </div>
+            @endforeach
         </div>
-    
-
         <div class="row justify-content-left" style="margin:2em 2em;">
 
             <button class="button-call">
@@ -49,6 +48,7 @@
                 </div>
             </button>
         </div>
+
     </div>
 
 
