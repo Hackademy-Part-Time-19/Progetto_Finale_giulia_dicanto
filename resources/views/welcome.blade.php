@@ -7,7 +7,7 @@
     @endif
 
     <x-carousel></x-carousel>
-    {{-- <div class="container my-5">
+    <div class="container my-5">
         <div class="row justify-content-center">
             @foreach ($articles as $article)
                 <div class="col-12 col-md-3">
@@ -17,12 +17,14 @@
                     :image="$article->image"
                     :category="$article->category->name"
                     :data="$article->created_at->format('d/m/Y')"
-                    :user="$article->user->name" :url="route('article.show', compact('article'))">
-                    </x-card>
+                    :user="$article->user->name" 
+                    :url="route('article.show', compact('article'))"
+                    />
                 </div>
             @endforeach
         </div>
-    </div> --}}
+    </div>
+
     <div class="row justify-content-center mb-3 d-flex;" style="padding:1.8em;margin-left: 1em; margin-top: 30px;">
         <h6>
             News and Updates

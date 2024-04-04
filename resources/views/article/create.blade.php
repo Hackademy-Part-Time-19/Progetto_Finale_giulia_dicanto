@@ -60,7 +60,7 @@
                         <button class="btn btn-info">Inserisci articolo</button>
                     </div>
                 </form>
-                @dd()
+
             </div>
 
         </div>

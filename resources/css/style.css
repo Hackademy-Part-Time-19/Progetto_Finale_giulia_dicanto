@@ -163,7 +163,7 @@ color: #C0B6FF;
 
 /* card*/
 
-.card:hover {
+.card-coaches:hover {
   cursor: pointer;
   transform: scale(0.97);
 }
@@ -231,15 +231,15 @@ color: #C0B6FF;
   transform: scale(0.97);
 }
 
-.card:hover .card-content {
+.card-coaches:hover .card-content {
   transform: scale(0.96);
 }
 
-.card:hover .card-image svg {
+.card-coaches:hover .card-image svg {
   transform: scale(1.05);
 }
 
-.card:active {
+.card-coaches:active {
   transform: scale(0.9);
 }
 
