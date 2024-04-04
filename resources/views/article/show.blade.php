@@ -10,10 +10,10 @@
 
     <div class="container my-5">
         <div class="row justify-content-center">
-           
+
 
             <div class="col-12 col-md-8">
-                <img src="{{Storage:: url($image) }}" alt="" class="img-fluid my-3">
+                <img src="{{ Storage::url($article->image) }}" alt="immagine articolo" class="img-fluid my-3">
                 <div class="text-center">
                     <h2>{{ $article->subtitle }}</h2>
                     <div class="my-3 text-muted fst-italic"></div>
@@ -22,13 +22,12 @@
             </div>
             <hr>
 
-            <p>{{$article->body}}</p>
+            <p>{{ $article->body }}</p>
             <div class="text-center">
-                <a href="{{route('welcome')}}" class="btn bg-info text-white my-5"> Torna indietro</a>
+                <a href="{{ route('homepage') }}" class="btn bg-info text-white my-5"> Torna indietro</a>
             </div>
 
         </div>
     </div>
 
 </x-layout.main>
-

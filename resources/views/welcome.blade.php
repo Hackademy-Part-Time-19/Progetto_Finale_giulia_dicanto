@@ -7,7 +7,7 @@
     @endif
 
     <x-carousel></x-carousel>
-    <div class="nav-scroller py-1 mb-2 border-bottom" style="margin-top: 15px">
+    <div class="nav-scroller py-1 mb-2" style="margin-top: 20px">
         <nav class="nav d-flex justify-content-center">
             <a class="p-2 text-muted filter-btn" href="#">Full Body</a>
             <a class="p-2 text-muted filter-btn" href="#">Abs</a>
@@ -17,7 +17,7 @@
             <a class="p-2 text-muted filter-btn" href="#">Shape&Tone</a>
         </nav>
     </div>
-    <div class="row justify-content-center mb-3 d-flex;" style="padding:1.8em; margin-left: 1em; margin-top: 15px;">
+    <div class="row justify-content-center mb-3 d-flex" style="padding:1.8em; margin-left: 1em; margin-top: 15px;">
         <h6>
             News and Updates
         </h6>
@@ -26,7 +26,7 @@
         </h1>
     </div>
 
-    <div class="row my-5 justify-content-center" style="padding:1em; margin-left: 1em;">
+    <div class="row my-5 justify-content-center" style="padding:1em; margin-top:5px; margin-left: 1em;">
         <div class="row justify-content-center">
             @foreach ($articles as $article)
                 <div class="col-12 col-md-3">

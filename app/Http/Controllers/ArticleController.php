@@ -66,17 +66,17 @@ class ArticleController extends Controller
         ]);
 
         $article = Article::create([
-                'title' => $request->title,
-                'subtitle' => $request->subtitle,
-                'body' => $request->body,
-                'image' => $request->file('image')->store('public/images'),
-                'category_id' => $request->category,
-                'user_id' => Auth::user()->id,
+            'title' => $request->title,
+            'subtitle' => $request->subtitle,
+            'body' => $request->body,
+            'image' => $request->file('image')->store('public/images'),
+            'category_id' => $request->category,
+            'user_id' => Auth::user()->id,
 
-            ]);
+        ]);
 
 
-        return redirect(route('homepage'))->with('message','Post inserito con successo');
+        return redirect(route('homepage'))->with('message', 'Post inserito con successo');
 
     }
 
@@ -87,20 +87,7 @@ class ArticleController extends Controller
 
     public function show(Article $article)
     {
-        // // Verifica se l'utente è autenticato
-        if (Auth::check()) {
-            //     // Recupera l'ID dell'utente autenticato
-            $userId = Auth::id();
-
-            //     // Recupera gli articoli dell'utente loggato in ordine di data decrescente
-            $articles = Article::where('user_id', $userId)->latest()->get();
-
-            return $articles;
-        } else {
-            //     // Se l'utente non è autenticato
-            return redirect()->route('login');
-        }
-
+        return view('article.show', compact('article'));
     }
 
     /**
