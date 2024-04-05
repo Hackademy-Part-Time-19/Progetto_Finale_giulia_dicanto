@@ -14,4 +14,5 @@ Route::get('/article/category/{category_id}', [CategoryController::class, "Categ
 Route::resource('article', ArticleController::class);
 Route::resource('category', CategoryController::class);
 
-
+Route::get('/careers' ,[PublicController::class, 'careers'])->name('careers');
+Route::post('/carers/submit', [PublicContreller::class , 'careersSubmit'])->name('carrers.submit');
