@@ -25,7 +25,7 @@ class PublicController extends Controller
         return view('careers');
     }
 
-    public function careerSubmit (Request $request)
+    public function careersSubmit (Request $request)
     {
         $request->validate(
             [
