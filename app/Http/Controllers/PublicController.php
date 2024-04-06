@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\CareerRequestMail;
 use App\Models\Article;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
 class PublicController extends Controller
 {
     public function __construct()
-
     {
         // $this->$middleware ('auth')-> except ('homepage');
     }
@@ -25,15 +26,40 @@ class PublicController extends Controller
         return view('careers');
     }
 
-    public function careersSubmit (Request $request)
+    public function careersSubmit(Request $request)
     {
         $request->validate(
             [
-                'role'=> 'required',
+                'role' => 'required',
                 'email' => 'required | email',
                 'message' => 'required',
-            ]);
-            dd($request->all());
+            ]
+        );
+
+        $user = Auth::user();
+        $role = $request->role;
+        $email = $request->mail;
+        $message = $request->message;
+
+        Mail::to('admin@theaulabpost.it')->send(new CareerRequestMail(compact('role', 'email', 'message')));
+
+        switch ($role) {
+            case 'admin':
+                $user->is_admin = NULL;
+                break;
+
+            case 'revisor':
+                $user->is_revisor = NULL;
+                break;
+
+            case 'writer':
+                $user->is_writer = NULL;
+                break;
+        }
+
+        $user->update();
+
+        return redirect(route('homepage'))->with('message','Grazie per averci inoltrato la tua candidatura!');
     }
 
 }
