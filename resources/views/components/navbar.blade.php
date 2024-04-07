@@ -24,7 +24,7 @@
                     </ul>
                 </li>
 
-                <li class="nav-item dropdown">
+                {{-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" style="color: rgb(48, 46, 46);" href="#" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">Category</a>
                     <ul class="dropdown-menu">
@@ -33,7 +33,7 @@
                         <li><a class="dropdown-item" href="#">Category3</a></li>
                         <li><a class="dropdown-item" href="#">Category4</a></li>
                     </ul>
-                </li>
+                </li> --}}
                 <li> <a class="nav-link" href="{{ route('article.index') }}" style="color: rgb(48, 46, 46);">Blog</a>
                 </li>
                 <li class="nav-item">
@@ -46,6 +46,11 @@
 
             <!-- Right nav/link -->
             @auth
+                @if (Auth::user()->is_admin)
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin.dashboard') }}">Dashboard</a>
+                    </li>
+                @endif
                 <div class="d-flex">
 
 

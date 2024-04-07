@@ -12,9 +12,9 @@
     <div class="container-fluid p-1 justify-content-center aligne-items-center" style="margin-left: 40px; margin-right: 40px;">
         <a href="{{ route('homepage') }}">
             <img class="d-inline-block align-text-top" style="height: 85px; margin-right: 15px;"
-                src="public/img/The-Aulab-Post-logobn-500x320.png" alt="logo the aulab post"></a>
+                src="{{asset('img/The-Aulab-Post-logobn-500x320.png')}}" alt="logo the aulab post"></a>
 
-        <h1>Abbiamo ricevuto la tua richiesta</h1>
+        <h1>Nuova Candidatura</h1>
         <h5>per il ruolo di {{ $info['role'] }}</h5>
         <p>Ricevuta da {{ $info['email'] }}</p>
 

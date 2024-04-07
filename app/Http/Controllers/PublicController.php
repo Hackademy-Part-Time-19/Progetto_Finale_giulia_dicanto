@@ -38,7 +38,7 @@ class PublicController extends Controller
 
         $user = Auth::user();
         $role = $request->role;
-        $email = $request->mail;
+        $email = $request->email;
         $message = $request->message;
 
         Mail::to('admin@theaulabpost.it')->send(new CareerRequestMail(compact('role', 'email', 'message')));
