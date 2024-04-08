@@ -16,11 +16,12 @@ class UserIsAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::user() && Auth::user()->is_admin)
+        if (Auth::check() && Auth::user()->is_admin)
         {
             return $next($request);
         }
         
         return redirect(route('homepage'))->with('message', 'È necessario essere autorizzati per accedere a questa risorsa');
     }
+
 }
