@@ -27,6 +27,7 @@
     </div>
 
     <div class="row my-5 justify-content-center" style="padding:1em; margin-top:5px; margin-left: 1em;">
+
         <div class="row justify-content-center">
             @foreach ($articles as $article)
                 <div class="col-12 col-md-3">
@@ -35,6 +36,7 @@
                 </div>
             @endforeach
         </div>
+
         <div class="row justify-content-left" style="margin:2em 2em;">
 
             <button class="button-call">

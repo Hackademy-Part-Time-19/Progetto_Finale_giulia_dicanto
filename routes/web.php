@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\RevisorController;
 use App\Http\Middleware\UserIsAdmin;
 use App\Livewire\Form;
 use Illuminate\Support\Facades\Route;
@@ -25,3 +26,11 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
     Route::patch('/{user}/set-revisor', [AdminController::class, 'setRevisor'])->name('admin.setRevisor');
     Route::patch('/{user}/set-writer', [AdminController::class, 'setWriter'])->name('admin.setWriter');
 });
+
+Route::middleware(['revisor'])->prefix('revisor')->group(function () {
+    Route::get('/dashboard', [RevisorController::class, 'dashboard'])->name('revisorController.dashboard');
+    Route::post('/{article}/accept', [RevisorController::class, 'acceptArticle'])->name('revisor.acceptArticle');
+    Route::post('/{article}/reject', [RevisorController::class, 'rejectArticle'])->name('revisor.rejectArticle');
+    Route::post('/{article}/undo', [RevisorController::class, 'undoArticle'])->name('revisor.undoArticle');
+});
+

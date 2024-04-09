@@ -26,6 +26,19 @@
             <div class="text-center">
                 <a href="{{ route('homepage') }}" class="btn bg-info text-white my-5"> Torna indietro</a>
             </div>
+            {{-- <div class="d-flex justify-content-between">
+                @if (Auth::user() && Auth::user()->is_revisor)
+                    <form action="{{ route('revisor.acceptArticle', compact('article')) }}" method="POST">
+                        @csrf
+                        <button class="btn btn-info">Accetta l'articolo</button>
+                    </form>
+
+                    <form action="{{ route('revisor.rejectArticle', compact('article')) }}" method="POST">
+                        @csrf
+                        <button class="btn btn-info">Rifiuta l'articolo</button>
+                    </form>
+                @endif
+            </div> --}}
 
         </div>
     </div>

@@ -46,11 +46,7 @@
 
             <!-- Right nav/link -->
             @auth
-                @if (Auth::user()->is_admin)
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.dashboard') }}">Dashboard</a>
-                    </li>
-                @endif
+
                 <div class="d-flex">
 
 
@@ -58,10 +54,27 @@
                         <a class="nav-link" href="#" role="button">
                             Ciao {{ Auth::user()->name }}
                         </a>
-                        <a class="nav-link" href="{{ route('article.create') }}" style="margin-left:5px"><span
-                                class="color_purple" style="font-weight: 500;">Crea il tuo post</span></a>
-                        <form action="{{ route('logout') }}" id="logout-form" method="POST">
+                        @if (Auth::user()->is_admin)
+                          
+                                <a class="nav-link" href="{{ route('admin.dashboard') }}" style="margin-left:5px"><span
+                                    class="color_purple" style="font-weight: 500;">Dashboard</span></a>
+                            
 
+                         @if (Auth::user()->is_revisor)
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('revisor.dashboard') }}" style="margin-left:5px"><span
+                                        class="color_purple" style="font-weight: 500;">Dashboard | Revisore</span></a>
+                                </li>
+                            @endif
+                        @else
+                            <a class="nav-link" href="{{ route('article.create') }}" style="margin-left:5px"><span
+                                    class="color_purple" style="font-weight: 500;">Crea il tuo post</span></a>
+                            <form action="{{ route('logout') }}" id="logout-form" method="POST">
+
+                                <a class="nav-link" href="{{ route('careers') }}" style="margin-left:5px"><span
+                                        class="color_purple" style="font-weight: 500;">Lavora con noi</span></a>
+                                <form action="{{ route('logout') }}" id="logout-form" method="POST">
+                        @endif
                     </div>
 
                     @csrf
