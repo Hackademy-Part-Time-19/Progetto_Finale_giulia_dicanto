@@ -12,9 +12,10 @@
                     <img style="border-radius:100%; margin-left: 2em" src="https://assets.codepen.io/285131/almeria-avatar.jpeg" />
                 </span>
             </div> --}}
-
         
     </div>
+
+
     @if (session('message'))
         <div class="alert alert-success text-center">
             {{ session('message') }}
@@ -40,7 +41,7 @@
             </div>
         </div>
     </div>
-
+   
     <div class="container my-5">
         <div class="row justify-content-center">
 
@@ -52,5 +53,5 @@
     </div>
 
    
-
+   
 </x-layout.main>

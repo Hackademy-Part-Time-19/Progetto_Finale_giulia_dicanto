@@ -17,6 +17,7 @@ Route::get('/article/category/{category_id}', [CategoryController::class, "Categ
 Route::resource('article', ArticleController::class);
 Route::resource('category', CategoryController::class);
 
+
 Route::get('/careers', [PublicController::class, 'careers'])->name('careers');
 Route::post('/careers/submit', [PublicController::class, 'careersSubmit'])->name('careers.submit');
 
@@ -28,7 +29,7 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
 });
 
 Route::middleware(['revisor'])->prefix('revisor')->group(function () {
-    Route::get('/dashboard', [RevisorController::class, 'dashboard'])->name('revisorController.dashboard');
+    Route::get('/dashboard', [RevisorController::class, 'dashboard'])->name('revisor.dashboard');
     Route::post('/{article}/accept', [RevisorController::class, 'acceptArticle'])->name('revisor.acceptArticle');
     Route::post('/{article}/reject', [RevisorController::class, 'rejectArticle'])->name('revisor.rejectArticle');
     Route::post('/{article}/undo', [RevisorController::class, 'undoArticle'])->name('revisor.undoArticle');
