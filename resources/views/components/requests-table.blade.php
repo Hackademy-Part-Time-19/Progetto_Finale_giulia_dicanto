@@ -1,4 +1,4 @@
-<table class="table table-strped table-hover border">
+<table class="table table-striped table-hover border">
     <thead>
         <tr>
             <th scope="col">#</th>
@@ -15,42 +15,39 @@
     <tbody>
         @foreach ($roleRequests as $user)
             <tr>
-                <th scope="row">{{ $user->id }}</th>
+                <td>{{ $user->id }}</td>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>
                     @switch($role)
-                    @case('amministratore')
-                        <form action="{{ route('admin.setAdmin', compact('user')) }}" method="POST">
-                            @csrf
-                            @method('patch')
+                        @case('amministratore')
+                            <form action="{{ route('admin.setAdmin', compact('user')) }}" method="POST">
+                                @csrf
+                                @method('patch')
+                                <button type="submit" class="btn btn-info">Attiva {{ $role }}</button>
+                            </form>
+                        @break
 
-                            <button type="submit" class="btn btn-info">Attiva {{ $role }}</button>
-                        </form>
-                    @break
+                        @case('revisore')
+                            <form action="{{ route('admin.setRevisor', compact('user')) }}" method="POST">
+                                @csrf
+                                @method('patch')
+                                <button type="submit" class="btn btn-info">Attiva {{ $role }}</button>
+                            </form>
+                        @break
 
-                    @case('revisore')
-                    <form action="{{ route('admin.setRevisor', compact('user')) }}" method="POST">
-                        @csrf
-                        @method('patch')
+                        @case('redattore')
+                            <form action="{{ route('admin.setWriter', compact('user')) }}" method="POST">
+                                @csrf
+                                @method('patch')
 
-                        <button type="submit" class="btn btn-info">Attiva {{ $role }}</button>
-                    </form>
-                    @break
+                                <button type="submit" class="btn btn-info">Attiva {{ $role }}</button>
+                            </form>
+                        @break
+                    @endswitch
 
-                    @case('redattore')
-                    <form action="{{ route('admin.setWriter', compact('user')) }}" method="POST">
-                        @csrf
-                        @method('patch')
-
-                        <button type="submit" class="btn btn-info">Attiva {{ $role }}</button>
-                    </form>
-                    @break
-
-                @endswitch
-                
-            </td>
-        </tr>
-    @endforeach
-</tbody>
+                </td>
+            </tr>
+        @endforeach
+    </tbody>
 </table>

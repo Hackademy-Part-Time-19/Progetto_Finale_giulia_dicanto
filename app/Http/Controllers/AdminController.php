@@ -7,35 +7,39 @@ use App\Models\User;
 
 class AdminController extends Controller
 {
-  public function dashboard (){
+  public function dashboard()
+  {
     $adminRequests = User::where('is_admin', NULL)->get();
     $revisorRequests = User::where('is_revisor', NULL)->get();
     $writerRequests = User::where('is_writer', NULL)->get();
 
-    return view ('admin.dashboard', compact('adminRequests','revisorRequests','writerRequests'));
+    return view('admin.dashboard', compact('adminRequests', 'revisorRequests', 'writerRequests'));
   }
 
-public function setAdmin (User $user){
-$user->is_admin = true;
-$user -> save();
+  public function setAdmin(User $user)
+  {
+    $user->is_admin = true;
+    $user->save();
 
-return redirect(route('admin.dashboard'))->with('message','Hai concesso il ruolo di amministratore all\'utente scelto');
-}
+    return redirect(route('admin.dashboard'))->with('message', 'Hai concesso il ruolo di amministratore all\'utente scelto');
+  }
 
 
-public function setRevisor (User $user)
-{
+  public function setRevisor(User $user)
+  {
     $user->is_revisor = true;
-$user -> save();
+    $user->save();
 
-return redirect(route('admin.dashboard'))->with('message','Hai concesso il ruolo di revisore all\'utente scelto');
-}
+    return redirect(route('admin.dashboard'))->with('message', 'Hai concesso il ruolo di revisore all\'utente scelto');
+  }
 
-public function setWriter (User $user)
-{
+  public function setWriter(User $user)
+  {
     $user->is_writer = true;
-$user -> save();
+    $user->save();
 
-return redirect(route('admin.dashboard'))->with('message','Hai concesso il ruolo di redattore all\'utente scelto');
-}
+    return redirect(route('admin.dashboard'))->with('message', 'Hai concesso il ruolo di redattore all\'utente scelto');
+  }
+
+  
 }

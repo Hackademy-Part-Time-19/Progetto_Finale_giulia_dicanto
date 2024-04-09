@@ -177,7 +177,14 @@ color: #C0B6FF;
   background-color: #CEFF68;
   border: #CEFF68;
 }
-
+/* dashboard admin */
+.app-header-actions {
+	display: flex;
+	align-items: center;
+	@media (max-width: 1200px) {
+		display: none;
+	}
+}
 /* card*/
 
 .card-coaches:hover {
@@ -261,52 +268,3 @@ color: #C0B6FF;
 }
 
 /* footer */
-
-/* social */
-.container-social {
-  position: relative;
-  top: 5px;
- /*  choose your size */
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.container-social button {
-  width: 50px;
-  height: 50px;
-  border: none;
-  background-color: #313638;
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-.icon-social {
-  width: 26px;
-  height: 26px;
-  fill: #fff;
-}
-
-.container-social button:nth-child(1):hover {
-  background-color: #2753a7;
-}
-
-.container-social button:nth-child(2):hover {
-  background-color: #cd242b;
-}
-
-.container-social button:nth-child(3):hover {
-  background-color: #55acee;
-}
-
-.container-social button:nth-child(4):hover {
-  background-color: #0274b3;
-}
-
-.title-social {
-  color: gray;
-  font-weight: 700;
-  font-size: 17px;
-  position: absolute;
-  top: -35px;
-  left: 0;
-}

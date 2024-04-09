@@ -1,10 +1,19 @@
 <x-layout.main>
-    <div class="container-fluid p-5 bg-info text-center text-white">
-        <div class="row justify-content-center">
-            <h2 class="display-1">
+    <div class=" d-flex container-fluid p-5 bg-dark text-center justify-content-center">
+        <div class="row justify-content-center justify-content-center align-items-center" style="margin: padding: 5px">
+            <h2 class="display-1 text-white">
                 Bentornato, Admin
             </h2>
         </div>
+        
+            {{-- <div class="d-flex text-white justify-content-center align-items-center" style="margin: 2em; border: solid white; padding: 5px">
+                <span>Matheo Peterson</span>
+                <span>
+                    <img style="border-radius:100%; margin-left: 2em" src="https://assets.codepen.io/285131/almeria-avatar.jpeg" />
+                </span>
+            </div> --}}
+
+        
     </div>
     @if (session('message'))
         <div class="alert alert-success text-center">
@@ -41,5 +50,7 @@
             </div>
         </div>
     </div>
+
+   
 
 </x-layout.main>

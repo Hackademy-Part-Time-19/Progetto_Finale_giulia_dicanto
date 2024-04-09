@@ -24,16 +24,6 @@
                     </ul>
                 </li>
 
-                {{-- <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" style="color: rgb(48, 46, 46);" href="#" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">Category</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Category1</a></li>
-                        <li><a class="dropdown-item" href="#">Category2</a></li>
-                        <li><a class="dropdown-item" href="#">Category3</a></li>
-                        <li><a class="dropdown-item" href="#">Category4</a></li>
-                    </ul>
-                </li> --}}
                 <li> <a class="nav-link" href="{{ route('article.index') }}" style="color: rgb(48, 46, 46);">Blog</a>
                 </li>
                 <li class="nav-item">
@@ -58,13 +48,14 @@
                           
                                 <a class="nav-link" href="{{ route('admin.dashboard') }}" style="margin-left:5px"><span
                                     class="color_purple" style="font-weight: 500;">Dashboard</span></a>
-                            
+                                    <form action="{{ route('logout') }}" id="logout-form" method="POST">
 
                          @if (Auth::user()->is_revisor)
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('revisor.dashboard') }}" style="margin-left:5px"><span
                                         class="color_purple" style="font-weight: 500;">Dashboard | Revisore</span></a>
                                 </li>
+                                <form action="{{ route('logout') }}" id="logout-form" method="POST">
                             @endif
                         @else
                             <a class="nav-link" href="{{ route('article.create') }}" style="margin-left:5px"><span
