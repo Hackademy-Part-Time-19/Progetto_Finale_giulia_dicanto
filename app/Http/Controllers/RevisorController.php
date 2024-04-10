@@ -26,7 +26,7 @@ class RevisorController extends Controller
 
       $article->update(['is_accepted' => true]);
 
-        return redirect()->back()->with('message','Hai accettato l\'articolo scelto');
+        return redirect()->route('revisor.dashboard')->with('message','Hai accettato l\'articolo scelto');
 
    }
 

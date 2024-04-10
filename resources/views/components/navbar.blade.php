@@ -47,23 +47,27 @@
                         @if (Auth::user()->is_admin)
                             <a class="nav-link" href="{{ route('admin.dashboard') }}" style="margin-left:5px"><span
                                     class="color_purple" style="font-weight: 500;">Dashboard</span></a>
-                                    <form action="{{ route('logout') }}" id="logout-form" method="POST">
-                           
-                        @elseif (Auth::user()->is_revisor)
-                            <li class="nav-item list-unstyled">
-                                <a class="nav-link" href="{{ route('revisor.dashboard') }}" style="margin-left:5px"><span
-                                        class="color_purple" style="font-weight: 500;">Dashboard | Revisore</span></a>
-                            </li>
                             <form action="{{ route('logout') }}" id="logout-form" method="POST">
-                    
-                        @else
-                            <a class="nav-link" href="{{ route('article.create') }}" style="margin-left:5px"><span
-                                    class="color_purple" style="font-weight: 500;">Crea il tuo post</span></a>
-                            
-
-                            <a class="nav-link" href="{{ route('careers') }}" style="margin-left:5px"><span
-                                    class="color_purple" style="font-weight: 500;">Lavora con noi</span></a>
+                            @elseif (Auth::user()->is_revisor)
+                                <li class="nav-item list-unstyled">
+                                    <a class="nav-link" href="{{ route('revisor.dashboard') }}"
+                                        style="margin-left:5px"><span class="color_purple"
+                                            style="font-weight: 500;">Dashboard | Revisore</span></a>
+                                </li>
+                                <form action="{{ route('logout') }}" id="logout-form" method="POST">
+                                @elseif (Auth::user()->is_revisor)
+                                    <a class="nav-link" href="{{ route('article.create') }}" style="margin-left:5px"><span
+                                            class="color_purple" style="font-weight: 500;">Crea il tuo post</span></a>
                                     <form action="{{ route('logout') }}" id="logout-form" method="POST">
+                                    @else
+                                        <a class="nav-link" href="{{ route('article.create') }}"
+                                            style="margin-left:5px"><span class="color_purple"
+                                                style="font-weight: 500;">Crea il tuo post</span></a>
+
+
+                                        <a class="nav-link" href="{{ route('careers') }}" style="margin-left:5px"><span
+                                                class="color_purple" style="font-weight: 500;">Lavora con noi</span></a>
+                                        <form action="{{ route('logout') }}" id="logout-form" method="POST">
                         @endif
                     </div>
 
@@ -76,7 +80,7 @@
                             <path
                                 d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
                         </svg>
-                       
+
                         <button type="submit" class="btn nav-link text-white"
                             style="margin:5px; padding:5px; background-color:#2a2a2a">Logout <svg
                                 xmlns="http://www.w3.org/2000/svg" width="20" height="20"
@@ -88,7 +92,7 @@
                                     d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
                             </svg>
                         </button>
-                    </form>
+                        </form>
                     </div>
                 </div>
             @endauth

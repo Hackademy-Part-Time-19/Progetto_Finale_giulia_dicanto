@@ -9,6 +9,7 @@
     <x-carousel></x-carousel>
     <div class="nav-scroller py-1 mb-2" style="margin-top: 20px">
         <nav class="nav d-flex justify-content-center">
+          
             <a class="p-2 text-muted filter-btn" href="#">Full Body</a>
             <a class="p-2 text-muted filter-btn" href="#">Abs</a>
             <a class="p-2 text-muted filter-btn" href="#">Booty</a>

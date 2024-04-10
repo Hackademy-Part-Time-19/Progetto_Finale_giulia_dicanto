@@ -25,12 +25,15 @@
             <p>{{ $article->body }}</p>
 
             <div class="d-flex justify-content-between">
-                <form action="{{ route('revisor.rejectArticle', compact('article')) }}" method="POST">
+                <form action="{{ route('revisor.acceptArticle', compact('article')) }}" method="POST">
+                    @csrf
+                    @method('PATCH')
                     <button class="btn btn-info">Accetta l'articolo</button>
                 </form>
 
                 <form action="{{ route('revisor.rejectArticle', compact('article')) }}" method="POST">
                     @csrf
+                    @method('PATCH')
                     <button class="btn btn-info">Rifiuta l'articolo</button>
                 </form>
 

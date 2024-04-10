@@ -11,8 +11,9 @@
 
     <tbody>
         @foreach ($roleRequests as $user)
+        
             <tr>
-                <td>{{ $user->id }}</td>
+                <th scope="role">{{ $user->id }}</th>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>
@@ -20,7 +21,7 @@
                         @case('amministratore')
                             <form action="{{ route('admin.setAdmin', compact('user')) }}" method="POST">
                                 @csrf
-                                @method('patch')
+                                @method('PATCH')
                                 <button type="submit" class="btn btn-info">Attiva {{ $role }}</button>
                             </form>
                         @break
@@ -28,7 +29,7 @@
                         @case('revisore')
                             <form action="{{ route('admin.setRevisor', compact('user')) }}" method="POST">
                                 @csrf
-                                @method('patch')
+                                @method('PATCH')
                                 <button type="submit" class="btn btn-info">Attiva {{ $role }}</button>
                             </form>
                         @break
@@ -36,7 +37,7 @@
                         @case('redattore')
                             <form action="{{ route('admin.setWriter', compact('user')) }}" method="POST">
                                 @csrf
-                                @method('patch')
+                                @method('PATCH')
 
                                 <button type="submit" class="btn btn-info">Attiva {{ $role }}</button>
                             </form>
@@ -47,4 +48,5 @@
             </tr>
         @endforeach
     </tbody>
+    
 </table>

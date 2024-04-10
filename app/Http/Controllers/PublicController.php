@@ -62,6 +62,4 @@ class PublicController extends Controller
         return redirect(route('homepage'))->with('message','Grazie per averci inoltrato la tua candidatura!');
     }
 
-    
-
 }

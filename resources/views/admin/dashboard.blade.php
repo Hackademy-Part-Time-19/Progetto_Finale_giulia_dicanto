@@ -15,7 +15,7 @@
         
     </div>
 
-
+    
     @if (session('message'))
         <div class="alert alert-success text-center">
             {{ session('message') }}
@@ -27,7 +27,7 @@
 
             <div class="col-12">
                 <h2>Richieste per il ruolo di <span class="color_purple">Amministratore</span></h2>
-                <x-requests-table :roleRequests="$adminRequests" role= "amministratore" />
+                <x-requests-table :roleRequests="$adminRequests" role= "amministratore"/>
             </div>
         </div>
     </div>

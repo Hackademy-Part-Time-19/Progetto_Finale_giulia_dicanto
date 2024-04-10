@@ -38,8 +38,7 @@ class AdminController extends Controller
     $user->is_writer = true;
     $user->save();
 
-    return redirect(route('admin.dashboard'))->with('message', 'Hai concesso il ruolo di redattore all\'utente scelto');
+    return redirect(route('admin.dashboard'))->with('message', 'Hai concesso il ruolo di revisore all\'utente scelto');
   }
-
   
 }

@@ -23,20 +23,23 @@ class ArticleController extends Controller
     /**
      * Display a listing of the resource.
      */
-    // public function index()
-    // {
-    //     $articles = Article::where('is_accepted', true)->orderBy('created_at', 'desc')->get();
-    //     return view('article.index', compact('articles'));
-    // }
 
     public function index()
     {
         $articles = Article::where('is_accepted', true)
-                            ->latest()
-                            ->take(4)
-                            ->get();
-    
+            ->latest()
+            ->take(4)
+            ->get();
+
         return view('article.index', compact('articles'));
+    }
+
+    public function filter()
+    {
+        $filteredArticles = Article::where('category', 'full-body')
+            ->latest()
+            ->take(4)
+            ->get();
     }
 
     /**
@@ -45,7 +48,7 @@ class ArticleController extends Controller
     public function create()
     {// Verifica se l'utente è autenticato
         if (!Auth::check()) {
-            // Se l'utente non è autenticato, reindirizzalo alla pagina di login
+
             return redirect()->route('login');
         }
 
@@ -89,7 +92,21 @@ class ArticleController extends Controller
         return redirect(route('homepage'))->with('message', 'Post inserito con successo');
 
     }
+    /**
+     * Filter articles by category and return the last 4.
+     */
+    public function filter(Request $request)
+    {
+        $category = $request->category;
+        $filteredArticles = Article::whereHas('category', function ($query) use ($category) {
+            $query->where('name', $category);
+        })->where('is_accepted', true)
+            ->latest()
+            ->take(4)
+            ->get();
 
+        return view('article.index', compact('filteredArticles'));
+    }
 
     /**
      * Display the specified resource.

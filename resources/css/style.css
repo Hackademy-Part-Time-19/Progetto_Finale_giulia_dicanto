@@ -185,6 +185,66 @@ color: #C0B6FF;
 		display: none;
 	}
 }
+
+/* dashboard revisor */
+.card-time {
+  width: 280px;
+  height: 150px;
+  background: rgb(60, 4, 134);
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  display: flex;
+  color: #F8F9FA;
+  justify-content: center;
+  position: relative;
+  flex-direction: column;
+  background: linear-gradient(to right,  rgb(79, 36, 85), #C0B6FF);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.card-time:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.time-text {
+  font-size: 50px;
+  margin-top: 0px;
+  margin-left: 15px;
+  font-weight: 600;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #F8F9FA;
+}
+
+.time-sub-text {
+  font-size: 15px;
+  margin-left: 5px;
+  color: #F8F9FA;
+}
+
+.day-text {
+  font-size: 18px;
+  margin-top: 0px;
+  margin-left: 15px;
+  font-weight: 500;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #F8F9FA;
+}
+
+.moon {
+  font-size: 20px;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  transition: all 0.3s ease-in-out;
+}
+
+.card-time:hover > .moon {
+  font-size: 23px;
+}
+
+
 /* card*/
 
 .card-coaches:hover {
