@@ -56,7 +56,7 @@
                         <a href="#" class="nav-link p-0" style="color: #f4f7f6;">About</a>
                     </li>
                     <li class="nav-item mb-2">
-                        <a href="#" class="nav-link p-0" style="color: #f4f7f6;">Blog</a>
+                        <a href="{{ route('article.index') }}" class="nav-link p-0" style="color: #f4f7f6;">Blog</a>
                     </li>
                     <li class="nav-item mb-2">
                         <a href="#" class="nav-link p-0" style="color: #f4f7f6;">Contatti</a>

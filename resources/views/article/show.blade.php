@@ -23,23 +23,27 @@
             <hr>
 
             <p>{{ $article->body }}</p>
+            @auth 
 
-            <div class="d-flex justify-content-between">
-                <form action="{{ route('revisor.acceptArticle', compact('article')) }}" method="POST">
-                    @csrf
-                    @method('PATCH')
-                    <button class="btn btn-info">Accetta l'articolo</button>
-                </form>
+            @if (Auth::user()->is_revisor)
+                <div class="d-flex justify-content-end">
+                    <form action="{{ route('revisor.acceptArticle', compact('article')) }}" method="POST">
+                        @csrf
+                        @method('PATCH')
+                        <button class="btn btn-info" style="margin:10px">Accetta l'articolo</button>
+                    </form>
 
-                <form action="{{ route('revisor.rejectArticle', compact('article')) }}" method="POST">
-                    @csrf
-                    @method('PATCH')
-                    <button class="btn btn-info">Rifiuta l'articolo</button>
-                </form>
+                    <form action="{{ route('revisor.rejectArticle', compact('article')) }}" method="POST">
+                        @csrf
+                        @method('PATCH')
+                        <button class="btn btn-info" style="margin:10px">Rifiuta l'articolo</button>
+                    </form>
+
+                </div>
 
             </div>
-
-        </div>
+@endif
+        @endauth
     </div>
 
 </x-layout.main>

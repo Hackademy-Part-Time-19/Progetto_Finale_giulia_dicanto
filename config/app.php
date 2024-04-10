@@ -170,6 +170,8 @@ return [
          */
 
         App\Providers\FortifyServiceProvider::class,
+        TeamTNT\Scout\TNTSearchScoutServiceProvider::class,
+        Laravel\Scout\ScoutServiceProvider::class,
 
     ]) ->toArray(),
 

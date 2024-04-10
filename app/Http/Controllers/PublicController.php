@@ -17,7 +17,7 @@ class PublicController extends Controller
     public function homepage()
     {
         // Recupera gli ultimi 4 articoli in ordine di data decrescente
-        $article = Article::orderBy('created_at', 'desc')->take(4)->get();
+        $article = Article::where('is_accepted', true)->orderBy('created_at', 'desc')->take(4)->get();
 
         return view('welcome', ['articles' => $article]);
     }
@@ -56,6 +56,8 @@ class PublicController extends Controller
                 $user->is_writer = NULL;
                 break;
         }
+
+        $user->requested_role= true;
 
         $user->update();
 

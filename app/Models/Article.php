@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Category;
 use App\Models\User;
+use Laravel\Scout\Searchable;
 
 class Article extends Model
 {
-    use HasFactory;
+    use HasFactory, Searchable;
 
     protected $fillable = [
         'title',
@@ -20,22 +21,36 @@ class Article extends Model
         'category_id',
         'is_accepted',
     ];
+    public $asYouType = true;
+    public function toSearchableArray()
+    {
+        $category = $this->category;
+        $array = [
+            'id' => $this->id,
+            'title' => $this->title,
+            'body'=> $this->body,
+            'category' => $category,
+        ];
+        return $array;
+    }
 
-    public function user() {
+    public function user()
+    {
 
         return $this->belongsTo(User::class);
 
     }
-    public function category(){
+    public function category()
+    {
 
         return $this->belongsTo(Category::class);
 
     }
 
-    
+
 
     use HasFactory;
-  
+
 }
 
 // class Category extends Model

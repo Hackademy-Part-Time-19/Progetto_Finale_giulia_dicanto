@@ -36,6 +36,7 @@
                     @enderror
                     <div class="mb-3">
                         <button class="btn bg-info text-white">Login</button>
+                        
                         <p class="small-mt-2">Non sei registrato? <a href="{{ route('register') }}"></a>Clicca qui</p>
                     </div>
 

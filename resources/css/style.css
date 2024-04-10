@@ -22,6 +22,41 @@ p {
   color: #2a2a2a;
 
 }
+/* cerca */
+.search-2 {
+  display: inline-block;
+  position: relative;
+  margin: 10px;
+}
+
+.search-2 input[type="text"] {
+  width: 200px;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-2 button[type="submit"] {
+  background-color: #EDEEF7;
+  border: none;
+  color: #777777;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: .9s ease;
+}
+
+.search-2 button[type="submit"]:hover {
+  transform: scale(1.1);
+  color: #2a2a2a;
+  background-color: #C0B6FF;
+}
+
 /* button*/
 
 .color_purple {

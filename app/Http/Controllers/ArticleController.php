@@ -34,12 +34,18 @@ class ArticleController extends Controller
         return view('article.index', compact('articles'));
     }
 
-    public function filter()
+    public function articleSearch(Request $request)
     {
-        $filteredArticles = Article::where('category', 'full-body')
-            ->latest()
-            ->take(4)
-            ->get();
+        $query = $request->input('query');
+        $articles = Article::search($query)->where('is_accepted',true)->latest()->get();
+
+        return view ('article.search-index', compact('articles','query'));
+    }
+
+    public function byCategory (Category $category){
+        $articles = $category->articles()->where('is_accepted',true)->latest()->get();
+        
+        return view ('article.by-category', compact('category', 'articles'));
     }
 
     /**
@@ -92,21 +98,10 @@ class ArticleController extends Controller
         return redirect(route('homepage'))->with('message', 'Post inserito con successo');
 
     }
-    /**
-     * Filter articles by category and return the last 4.
-     */
-    public function filter(Request $request)
-    {
-        $category = $request->category;
-        $filteredArticles = Article::whereHas('category', function ($query) use ($category) {
-            $query->where('name', $category);
-        })->where('is_accepted', true)
-            ->latest()
-            ->take(4)
-            ->get();
 
-        return view('article.index', compact('filteredArticles'));
-    }
+
+
+
 
     /**
      * Display the specified resource.

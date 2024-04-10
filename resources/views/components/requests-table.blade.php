@@ -17,7 +17,14 @@
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>
-                    @switch($role)
+
+                    <form action="" method="POST">
+                        @csrf
+                        @method('PATCH')
+                        <button type="submit" class="btn btn-info">Attiva</button>
+                    </form>
+
+                    {{-- @switch($role)
                         @case('amministratore')
                             <form action="{{ route('admin.setAdmin', compact('user')) }}" method="POST">
                                 @csrf
@@ -42,7 +49,7 @@
                                 <button type="submit" class="btn btn-info">Attiva {{ $role }}</button>
                             </form>
                         @break
-                    @endswitch
+                    @endswitch --}}
 
                 </td>
             </tr>
