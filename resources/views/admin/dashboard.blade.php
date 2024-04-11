@@ -32,6 +32,15 @@
         </div>
     </div>
 
+    <div class="container my-5">
+        <div class="row justify-content-center">
+         
+            <div class="col-12">
+                <h2>Tutti i <span class="color_purple">Tags</span></h2>
+                {{-- <x-metainfo-table :metaInfo="$tag" metaType="tags"/> --}}
+            </div>
+        </div>
+    </div>
     {{-- <div class="container my-5">
         <div class="row justify-content-center">
 

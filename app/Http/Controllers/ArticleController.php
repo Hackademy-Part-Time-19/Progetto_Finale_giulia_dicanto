@@ -66,6 +66,7 @@ class ArticleController extends Controller
 
         // Recupera tutte le categorie
         $categories = Category::all();
+        $tags = Tag::all();
 
         // Recupera l'ID dell'utente autenticato
         $userId = Auth::id();
@@ -73,7 +74,7 @@ class ArticleController extends Controller
         // Recupera gli articoli dell'utente loggato in ordine di data decrescente
         $article = Article::where('user_id', $userId)->latest()->get();
 
-        return view('article.create', compact('categories'));
+        return view('article.create', compact('categories', 'tags'));
     }
 
     /**
@@ -81,16 +82,17 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        
 
-            'title' => 'required |unique:articles|min:5',
-            'subtitle' => 'required |min:5',
-            'body' => 'required |min:10',
-            'image' => 'image | required',
+        $request->validate([
+            'title' => 'required|unique:articles|min:5',
+            'subtitle' => 'required|min:5',
+            'body' => 'required|min:10',
+            'image' => 'image|required',
             'category' => 'required',
             'tags' => 'required',
         ]);
-
+    
         $article = Article::create([
             'title' => $request->title,
             'subtitle' => $request->subtitle,
@@ -98,27 +100,26 @@ class ArticleController extends Controller
             'image' => $request->file('image')->store('public/images'),
             'category_id' => $request->category,
             'user_id' => Auth::user()->id,
-
         ]);
-
+    
         $tags = explode(',', $request->tags);
-
+    
         foreach ($tags as $i => $tag) {
             $tags[$i] = trim($tag);
         }
-
+    
         foreach ($tags as $tag) {
             $newTag = Tag::updateOrCreate(
                 ['name' => $tag],
-                ['name' =>strtolower($tag)],
+                ['name' => strtolower($tag)],
             );
-
+    
             $article->tags()->attach($newTag);
         }
-
+    
         return redirect(route('homepage'))->with('message', 'Post inserito con successo');
-
     }
+    
 
 
 

@@ -27,6 +27,7 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
     Route::patch('/{user}/set-admin', [AdminController::class, 'setAdmin'])->name('admin.setAdmin');
     Route::patch('/{user}/set-revisor', [AdminController::class, 'setRevisor'])->name('admin.setRevisor');
     Route::patch('/{user}/set-writer', [AdminController::class, 'setWriter'])->name('admin.setWriter');
+    Route::put('/edit/{tag}/tag' , [AdminController::class, 'editTag'])->name ('admin.editTag');
 });
 
 Route::middleware(['revisor'])->prefix('revisor')->group(function () {
