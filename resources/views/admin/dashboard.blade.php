@@ -52,6 +52,17 @@
             </div>
         </div>
     </div>
+
+    <div class="container my-5">
+        <div class="row justify-content-center">
+
+            <div class="col-12">
+                <h2>Tutte le <span class="color_purple">Categorie</span></h2>
+                <x-metainfo-table :metaInfos="$categories" metaType="categories" />
+            </div>
+        </div>
+    </div>
+
     {{-- <div class="container my-5">
         <div class="row justify-content-center">
 

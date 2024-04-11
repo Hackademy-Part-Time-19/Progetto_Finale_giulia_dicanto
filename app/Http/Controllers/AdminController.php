@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Article;
 use App\Models\Tag;
 use Illuminate\Http\Request;
@@ -17,8 +18,9 @@ class AdminController extends Controller
     $roleRequests = User::where('requested_role', true)->get();
     $tags = Tag::all();
     $metaInfos = Article::all();
+    $categories = Category::all();
 
-    return view('admin.dashboard', compact('roleRequests', 'tags', 'metaInfos'));
+    return view('admin.dashboard', compact('roleRequests', 'tags', 'metaInfos', 'categories'));
   }
 
   public function setAdmin(User $user)
@@ -51,7 +53,7 @@ class AdminController extends Controller
 
     $request->validate([
 
-      'name' => 'required|unique:tags',
+      'name' => 'required',
 
     ]);
 
@@ -62,7 +64,7 @@ class AdminController extends Controller
     return redirect(route('admin.dashboard'))->with('message', 'Hai aggiornato correttamente il tag');
   }
 
-  public function deliteTag (Tag $tag){
+  public function deleteTag (Tag $tag){
     foreach ($tag->articles as $article) {
       $article->tags()->detach($tag);
     }
@@ -70,6 +72,30 @@ class AdminController extends Controller
     $tag->delete();
 
     return redirect(route('admin.dashboard'))->with('message', 'Hai eliminato correttamente il tag');
+
+  }
+
+  public function editCategory (Request $request, Category  $category )
+  {
+
+    $request->validate([
+
+      'name' => 'required',
+
+    ]);
+
+    $category->update([
+      'name' => strtolower($request->name),
+    ]);
+
+    return redirect(route('admin.dashboard'))->with('message', 'Hai aggiornato correttamente la categoria');
+  }
+
+  public function deleteCategory (Category $category){
+   
+    $category->delete();
+
+    return redirect(route('admin.dashboard'))->with('message', 'Hai eliminato correttamente la categoria');
 
   }
 
