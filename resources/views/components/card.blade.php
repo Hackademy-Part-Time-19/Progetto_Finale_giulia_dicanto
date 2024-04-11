@@ -7,9 +7,9 @@
 
         @if ($tags)
 
-        <p class="small fst-italic text-capitalize">
+        <p class="small text-capitalize">
             @foreach ($tags as $tag)
-                #{{ $tag->name }}
+            <span class="color_purple">#{{ $tag->name }}</span>
             @endforeach
         </p>
         @endif

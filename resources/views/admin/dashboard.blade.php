@@ -22,22 +22,33 @@
         </div>
     @endif
 
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+
     <div class="container my-5">
         <div class="row justify-content-center">
-         
+
             <div class="col-12">
                 <h2>Nuove <span class="color_purple">Richieste</span></h2>
-                <x-requests-table :roleRequests="$roleRequests"/>
+                <x-requests-table :roleRequests="$roleRequests" />
             </div>
         </div>
     </div>
 
     <div class="container my-5">
         <div class="row justify-content-center">
-         
+
             <div class="col-12">
                 <h2>Tutti i <span class="color_purple">Tags</span></h2>
-                {{-- <x-metainfo-table :metaInfo="$tag" metaType="tags"/> --}}
+                <x-metainfo-table :metaInfos="$tags" metaType="tags" />
             </div>
         </div>
     </div>

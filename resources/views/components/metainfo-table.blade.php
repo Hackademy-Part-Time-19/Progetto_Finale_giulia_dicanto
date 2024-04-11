@@ -14,11 +14,11 @@
             <tr>
                 <th scope="row">{{ $metaInfo->id }}</th>
                 <td>{{ $metaInfo->name }}</td>
-                <td>{{ $metaInfo->articles()->count() }}</td>
+                <td>{{ $metaInfo->articles->count() }}</td>
 
                 @if ($metaType == 'tags')
                     <td>
-                        <form action="" method="">
+                        <form action="{{ route('admin.editTag', ['tag' => $metaInfo]) }}" method="POST">
                             @csrf
                             @method('put')
                             <input type="text" name="name" placeholder="Nuovo Tag"
@@ -28,7 +28,7 @@
                     </td>
 
                     <td>
-                        <form action="" method="">
+                        <form action="{{ route('admin.deleteTag', ['tag' => $metaInfo]) }}" method="POST">
                             @csrf
                             @method('delete')
 
