@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Tag;
 use App\Models\Category;
 use App\Models\User;
 use Laravel\Scout\Searchable;
@@ -28,6 +29,7 @@ class Article extends Model
         $array = [
             'id' => $this->id,
             'title' => $this->title,
+            'subtitle'=> $this->subtitle,
             'body'=> $this->body,
             'category' => $category,
         ];
@@ -46,17 +48,12 @@ class Article extends Model
         return $this->belongsTo(Category::class);
 
     }
+    public function tags()
+    {
 
+        return $this->belongsToMany(Tag::class);
 
-
-    use HasFactory;
+    }
 
 }
 
-// class Category extends Model
-// {
-//     public function categories()
-//     {
-//         return $this->belongsToMany(Category::class);
-//     }
-// }

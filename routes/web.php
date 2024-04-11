@@ -10,6 +10,7 @@ use App\Http\Controllers\CategoryController;
 
 Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
 
+Route::get('/article/category/{category}', [ArticleController::class, "byCategory"])->name("article.byCategory");
 Route::get('/article/category/{category_id}', [CategoryController::class, "CategoryIndex"])->name("category");
 
 Route::get('article/index', [ArticleController::class, 'index'])->name('article.index');

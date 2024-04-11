@@ -26,7 +26,7 @@
         <div class="row justify-content-center">
          
             <div class="col-12">
-                <h2>Richieste per il ruolo di <span class="color_purple">Amministratore</span></h2>
+                <h2>Nuove <span class="color_purple">Richieste</span></h2>
                 <x-requests-table :roleRequests="$roleRequests"/>
             </div>
         </div>

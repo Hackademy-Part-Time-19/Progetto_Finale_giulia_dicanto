@@ -20,7 +20,7 @@
 
    
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <title>The Aulab Post - Giulia</title>
+    <title>The Aulab Post - Training</title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
    
 </head>
