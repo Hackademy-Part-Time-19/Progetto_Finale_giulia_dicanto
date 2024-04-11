@@ -31,7 +31,7 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
     Route::delete('/delete/{tag}/tag' , [AdminController::class, 'deleteTag'])->name ('admin.deleteTag');
     Route::put('/edit/{category}/category' , [AdminController::class, 'editCategory'])->name ('admin.editCategory');
     Route::delete('/delete/{category}/category' , [AdminController::class, 'deleteCategory'])->name ('admin.deleteCategory');
-
+Route::post('/category/store',[AdminController::class, 'storeCategory' ])->name('admin.storeCategory');
 });
 
 Route::middleware(['revisor'])->prefix('revisor')->group(function () {

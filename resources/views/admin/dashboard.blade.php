@@ -59,6 +59,11 @@
             <div class="col-12">
                 <h2>Tutte le <span class="color_purple">Categorie</span></h2>
                 <x-metainfo-table :metaInfos="$categories" metaType="categories" />
+                <form action="{{ route('admin.storeCategory')}}" class="d-flex" method="POST">
+                    @csrf
+                    <input type="text" name="name" class="form-control me-2" placeholder="inserisci una nuova categoria">
+                    <button type="submit" class="btn btn-secondary">Aggiungi</button>
+                </form>
             </div>
         </div>
     </div>
