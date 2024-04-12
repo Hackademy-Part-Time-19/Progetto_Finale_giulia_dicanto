@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Tag;
 use App\Models\Article;
 use App\Models\Category;
+use Illuminate\Validation\Rule;
 
 
 use Illuminate\Http\Request;
@@ -46,13 +47,13 @@ class ArticleController extends Controller
     public function byCategory(Category $category)
     {
         $articles = $category->articles()
-                             ->where('is_accepted', true)
-                             ->latest()
-                             ->get();
-    
+            ->where('is_accepted', true)
+            ->latest()
+            ->get();
+
         return view('article.by-category', compact('category', 'articles'));
     }
-    
+
 
     /**
      * Show the form for creating a new resource.
@@ -82,7 +83,7 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        
+
 
         $request->validate([
             'title' => 'required|unique:articles|min:5',
@@ -92,7 +93,7 @@ class ArticleController extends Controller
             'category' => 'required',
             'tags' => 'required',
         ]);
-    
+
         $article = Article::create([
             'title' => $request->title,
             'subtitle' => $request->subtitle,
@@ -101,29 +102,24 @@ class ArticleController extends Controller
             'category_id' => $request->category,
             'user_id' => Auth::user()->id,
         ]);
-    
+
         $tags = explode(',', $request->tags);
-    
+
         foreach ($tags as $i => $tag) {
             $tags[$i] = trim($tag);
         }
-    
+
         foreach ($tags as $tag) {
             $newTag = Tag::updateOrCreate(
                 ['name' => $tag],
                 ['name' => strtolower($tag)],
             );
-    
+
             $article->tags()->attach($newTag);
         }
-    
+
         return redirect(route('homepage'))->with('message', 'Post inserito con successo');
     }
-    
-
-
-
-
 
     /**
      * Display the specified resource.
@@ -139,22 +135,70 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        //  //
+        $categories = Category::all();
+        return view('article.edit', compact('article' , 'categories'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Article $article)
-    {
-        //
+   
+public function update(Request $request, Article $article)
+{
+    $request->validate([
+        'title' => [
+            'required',
+            'min:5',
+            Rule::unique('articles')->ignore($article->id),
+        ],
+        'subtitle' => 'required|min:5',
+        'body' => 'required|min:10',
+        'image' => 'image',
+        'category' => 'required',
+        'tags' => 'required',
+    ]);
+
+    $article->update([
+        'title' => $request->title,
+        'subtitle' => $request->subtitle,
+        'body' => $request->body,
+        'category_id' => $request->category,
+    ]);
+
+    if ($request->hasFile('image')) {
+        Storage::delete($article->image);
+        $article->update([
+            'image' => $request->file('image')->store('public/images'),
+        ]);
     }
+
+    $tags = explode(',', $request->tags);
+    $newTags = [];
+
+    foreach ($tags as $tag) {
+        $newTag = Tag::updateOrCreate(
+            ['name' => $tag],
+            ['name' => strtolower($tag)]
+        );
+
+        $newTags[] = $newTag->id;
+    }
+
+    $article->tags()->sync($newTags);
+
+    return redirect()->route('writer.dashboard')->with('message', 'Post modificato con successo');
+}
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Article $article)
     {
-        //
+        foreach ($article->tags as $tag)
+            $article->tags()->detach($tag);
+
+        $article->delete();
+        return redirect(route('writer.dashboard'))->with('message', 'Post eliminato con successo');
+
     }
 }

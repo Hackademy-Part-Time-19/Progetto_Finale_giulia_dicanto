@@ -29,8 +29,12 @@
 
                 <td>
                     <a href="{{ route('article.show', compact('article')) }}" class="btn btn-info">Leggi</a>
-                    <a href="" class="btn btn-warning text-white">Modifica</a>
-                    <form action="" method="POST" class="d-inline">
+                    
+                    <a href="{{ route('article.edit', compact('article')) }}" class="btn btn-warning text-white">Modifica</a>
+                    
+                    <form action="{{ route('article.destroy', compact('article'))}}" method="POST" class="d-inline">
+                        @csrf
+                        @method('delete')
                         <button type="submit" class="btn btn-danger">Elimina</button>
 
                     </form>
