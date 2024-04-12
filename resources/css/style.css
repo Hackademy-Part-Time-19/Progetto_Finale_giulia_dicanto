@@ -189,6 +189,7 @@ color: #C0B6FF;
 .btn-primary:active,
 .btn-primary:visited {
   background-color: #BFB6FF;
+  border:none;
 }
 
 .btn-call-to-action-dark,

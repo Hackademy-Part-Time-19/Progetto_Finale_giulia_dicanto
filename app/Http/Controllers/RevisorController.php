@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Category;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class RevisorController extends Controller
@@ -12,18 +14,16 @@ class RevisorController extends Controller
       $unrevisionedArticles = Article::whereNull('is_accepted')->get();
       $acceptedArticles = Article::where('is_accepted', true)->get();
       $rejectedArticles = Article::where('is_accepted', false)->get();
+      $categories = Category::all();
+      $tags = Tag::all();
+      $articles = Article::all();
 
-      return view('revisor.dashboard', compact('unrevisionedArticles', 'acceptedArticles', 'rejectedArticles'));
+      return view('revisor.dashboard', compact('unrevisionedArticles', 'acceptedArticles', 'rejectedArticles', 'categories', 'tags', 'articles'));
 
    }
 
    public function acceptArticle(Article $article)
    {
-      // $article->is_accepted = true;
-      // $article->save();
-
-      // return redirect(route('revisor.dashboard'))->with('message', 'Hai accettato l\'articolo scelto');
-
       $article->update(['is_accepted' => true]);
 
         return redirect()->route('revisor.dashboard')->with('message','Hai accettato il post scelto');
@@ -32,11 +32,6 @@ class RevisorController extends Controller
 
 public function rejectArticle(Article $article)
 {
-   // $article->is_accepted = false;
-   // $article->save();
-
-   // return redirect(route('revisor.dashboard'))->with('message', 'Hai respinto l\'articolo scelto');
-
    $article->update(['is_accepted' => false]);
 
    return redirect()->route('revisor.dashboard')->with('message','Hai respinto il post scelto');
@@ -44,11 +39,6 @@ public function rejectArticle(Article $article)
 
 public function undoArticle(Article $article)
 {
-   // $article->is_accepted = NULL;
-   // $article->save();
-
-   // return redirect(route('revisor.dashboard'))->with('message', 'Hai riportato l\'articolo scelto in revisione');
-
    $article->update(['is_accepted' => null]);
 
    return redirect()->route('revisor.dashboard')->withMessage('Hai riportato il post scelto in revisione');

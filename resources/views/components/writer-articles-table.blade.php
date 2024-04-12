@@ -4,7 +4,7 @@
             <th scope="col">#</th>
             <th scope="col">Titolo</th>
             <th scope="col">Sottotitolo</th>
-            <th scope="col">Categoria/th>
+            <th scope="col">Categoria</th>
             <th scope="col">Tags</th>
             <th scope="col">Creato il</th>
             <th scope="col">Azioni</th>
@@ -30,7 +30,7 @@
                 <td>
                     <a href="{{ route('article.show', compact('article')) }}" class="btn btn-info">Leggi</a>
                     
-                    <a href="{{ route('article.edit', compact('article')) }}" class="btn btn-warning text-white">Modifica</a>
+                    <a href="{{ route('article.edit', compact('article')) }}" class="btn btn-primary text-white">Modifica</a>
                     
                     <form action="{{ route('article.destroy', compact('article'))}}" method="POST" class="d-inline">
                         @csrf

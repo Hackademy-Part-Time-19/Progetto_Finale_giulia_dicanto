@@ -61,8 +61,8 @@
                                             style="font-weight: 500;">Crea il tuo post</span></a>
                                 </li>
                                 <form action="{{ route('logout') }}" id="logout-form" method="POST">
-                                  
-                                        @elseif (Auth::user()->is_writer)
+
+                                        @elseif (Auth::user()->is_writer && Auth::user()->is_writer)
                                         <li class="nav-item list-unstyled">
                                             <a class="nav-link" href="{{ route('writer.dashboard') }}"
                                                 style="margin-left:5px"><span class="color_purple"
