@@ -26,7 +26,7 @@ class RevisorController extends Controller
 
       $article->update(['is_accepted' => true]);
 
-        return redirect()->route('revisor.dashboard')->with('message','Hai accettato l\'articolo scelto');
+        return redirect()->route('revisor.dashboard')->with('message','Hai accettato il post scelto');
 
    }
 
@@ -39,7 +39,7 @@ public function rejectArticle(Article $article)
 
    $article->update(['is_accepted' => false]);
 
-   return redirect()->route('revisor.dashboard')->with('message','Hai respinto l\'articolo scelto');
+   return redirect()->route('revisor.dashboard')->with('message','Hai respinto il post scelto');
 }
 
 public function undoArticle(Article $article)
@@ -51,7 +51,7 @@ public function undoArticle(Article $article)
 
    $article->update(['is_accepted' => null]);
 
-   return redirect()->route('revisor.dashboard')->withMessage('Hai riportato l\'articolo scelto in revisione');
+   return redirect()->route('revisor.dashboard')->withMessage('Hai riportato il post scelto in revisione');
 
 }
 }

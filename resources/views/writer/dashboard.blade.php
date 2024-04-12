@@ -23,8 +23,8 @@
         <div class="row justify-content-center">
 
             <div class="col-12">
-                <h2>Post da revisionare</h2>
-                <x-articles-table :articles="$unrevisionedArticles"/>
+                <h2>Post in fase di revisionare</h2>
+                <x-writer-articles-table :articles="$unrevisionedArticles"/>
             </div>
         </div>
     </div>
@@ -34,7 +34,7 @@
 
             <div class="col-12">
                 <h2>Post pubblicati</h2>
-                <x-articles-table :articles="$acceptedArticles"/>
+                <x-writer-articles-table :articles="$acceptedArticles"/>
             </div>
         </div>
     </div>
@@ -43,8 +43,8 @@
         <div class="row justify-content-center">
 
             <div class="col-12">
-                <h2>Post respinti </h2>
-                <x-articles-table :articles="$rejectedArticles"/>
+                <h2>Post Eliminati </h2>
+                <x-writer-articles-table :articles="$rejectedArticles"/>
             </div>
         </div>
     </div>

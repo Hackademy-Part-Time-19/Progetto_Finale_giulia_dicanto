@@ -20,7 +20,7 @@
                     asperiores dolor, qui nisi, impedit inventore voluptate quibusdam eaque. Corporis, ducimus! Vel
                     suscipit obcaecati repudiandae quisquam.</p>
 
-                <h3>Lavora come <span class="color_purple">Redattore</span></h3>
+                <h3>Lavora come <span class="color_purple">Autore</span></h3>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore ad consequatur temporibus amet culpa
                     asperiores dolor, qui nisi, impedit inventore voluptate quibusdam eaque. Corporis, ducimus! Vel
                     suscipit obcaecati repudiandae quisquam.</p>
@@ -46,7 +46,7 @@
                             <option value="">Scegli qui</option>
                             <option value="admin">Amministratore</option>
                             <option value="revisor">Revisore</option>
-                            <option value="writer">Redattore</option>
+                            <option value="writer">Autore</option>
                         </select>
                     </div>
 
