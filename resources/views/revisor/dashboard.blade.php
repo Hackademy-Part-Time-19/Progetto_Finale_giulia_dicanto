@@ -9,7 +9,7 @@
     
     <div class="container d-flex my-5 align-items-end justify-content-between ">
         <h6 class="display-1">
-            Bentornato, {{ Auth::user()->name }}
+            Ciao, {{ Auth::user()->name }}
         </h6>
         <div class="card-time justify-content-center">
             <p class="time-text"><span>11:11</span><span class="time-sub-text">PM</span></p>

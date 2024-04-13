@@ -2,7 +2,7 @@
     <div class=" d-flex container-fluid p-5 bg-dark text-center justify-content-center">
         <div class="row justify-content-center justify-content-center align-items-center" style="margin: padding: 5px">
             <h2 class="display-1 text-white">
-                Bentornato, Admin
+                Ciao, {{ Auth::user()->name }}
             </h2>
         </div>
 
@@ -59,10 +59,11 @@
             <div class="col-12">
                 <h2>Tutte le <span class="color_purple">Categorie</span></h2>
                 <x-metainfo-table :metaInfos="$categories" metaType="categories" />
-               
-                <form action="{{ route('admin.storeCategory')}}" class="d-flex" method="POST">
+
+                <form action="{{ route('admin.storeCategory') }}" class="d-flex" method="POST">
                     @csrf
-                    <input type="text" name="name" class="form-control me-2" placeholder="inserisci una nuova categoria">
+                    <input type="text" name="name" class="form-control me-2"
+                        placeholder="inserisci una nuova categoria">
                     <button type="submit" class="btn btn-secondary">Aggiungi</button>
                 </form>
             </div>

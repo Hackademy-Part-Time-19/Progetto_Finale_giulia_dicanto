@@ -10,12 +10,12 @@
     <div class="nav-scroller py-1 mb-2" style="margin-top: 20px">
         <nav class="nav d-flex justify-content-center">
 
-            <a class="p-2 text-muted filter-btn" href="#">Full Body</a>
-            <a class="p-2 text-muted filter-btn" href="#">Abs</a>
-            <a class="p-2 text-muted filter-btn" href="#">Booty</a>
-            <a class="p-2 text-muted filter-btn" href="#">Upper Body</a>
-            <a class="p-2 text-muted filter-btn" href="#">Legs</a>
-            <a class="p-2 text-muted filter-btn" href="#">Shape&Tone</a>
+            <a class="p-2 text-muted filter-btn" href="{{ route('article.byCategory', ['category' => 'Full Body']) }}">Full Body</a>
+            <a class="p-2 text-muted filter-btn" href="{{ route('article.byCategory', ['category' => 'Abs']) }}">Abs</a>
+            <a class="p-2 text-muted filter-btn" href="{{ route('article.byCategory', ['category' => 'Booty']) }}">Booty</a>
+            <a class="p-2 text-muted filter-btn" href="{{ route('article.byCategory', ['category' => 'Upper Body']) }}">Upper Body</a>
+            <a class="p-2 text-muted filter-btn" href="{{ route('article.byCategory', ['category' => 'Legs']) }}">Legs</a>
+            <a class="p-2 text-muted filter-btn" href="{{ route('article.byCategory', ['category' => 'Shape&Tone']) }}">Shape&Tone</a>
         </nav>
     </div>
     <div class="row justify-content-center mb-3 d-flex" style="padding:1.8em; margin-left: 1em; margin-top: 15px;">

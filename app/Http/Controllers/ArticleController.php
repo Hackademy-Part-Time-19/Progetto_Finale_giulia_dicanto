@@ -44,14 +44,13 @@ class ArticleController extends Controller
         return view('article.search-index', compact('articles', 'query'));
     }
 
-    public function byCategory(Category $category)
+    public function showByCategory($category)
     {
-        $articles = $category->articles()
-            ->where('is_accepted', true)
-            ->latest()
-            ->get();
-
-        return view('article.by-category', compact('category', 'articles'));
+        $articles = Article::whereHas('category', function ($query) use ($category) {
+            $query->where('name', $category);
+        })->get();
+    
+        return view('article.index', compact('articles'));
     }
 
 
