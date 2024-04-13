@@ -10,12 +10,17 @@
     <div class="nav-scroller py-1 mb-2" style="margin-top: 20px">
         <nav class="nav d-flex justify-content-center">
 
-            <a class="p-2 text-muted filter-btn" href="{{ route('article.byCategory', ['category' => 'Full Body']) }}">Full Body</a>
+            <a class="p-2 text-muted filter-btn"
+                href="{{ route('article.byCategory', ['category' => 'Full Body']) }}">Full Body</a>
             <a class="p-2 text-muted filter-btn" href="{{ route('article.byCategory', ['category' => 'Abs']) }}">Abs</a>
-            <a class="p-2 text-muted filter-btn" href="{{ route('article.byCategory', ['category' => 'Booty']) }}">Booty</a>
-            <a class="p-2 text-muted filter-btn" href="{{ route('article.byCategory', ['category' => 'Upper Body']) }}">Upper Body</a>
-            <a class="p-2 text-muted filter-btn" href="{{ route('article.byCategory', ['category' => 'Legs']) }}">Legs</a>
-            <a class="p-2 text-muted filter-btn" href="{{ route('article.byCategory', ['category' => 'Shape&Tone']) }}">Shape&Tone</a>
+            <a class="p-2 text-muted filter-btn"
+                href="{{ route('article.byCategory', ['category' => 'Booty']) }}">Booty</a>
+            <a class="p-2 text-muted filter-btn"
+                href="{{ route('article.byCategory', ['category' => 'Upper Body']) }}">Upper Body</a>
+            <a class="p-2 text-muted filter-btn"
+                href="{{ route('article.byCategory', ['category' => 'Legs']) }}">Legs</a>
+            <a class="p-2 text-muted filter-btn"
+                href="{{ route('article.byCategory', ['category' => 'Shape&Tone']) }}">Shape&Tone</a>
         </nav>
     </div>
     <div class="row justify-content-center mb-3 d-flex" style="padding:1.8em; margin-left: 1em; margin-top: 15px;">
@@ -190,37 +195,41 @@
         </div>
 
     </div>
-    <div class="container d-flex" style="border-radius: 2em; background: #f3f3f3; height: 30vh">
 
-        <div class="col-md-7 justify-content-center"
-            style="padding:3em; background: #f3f3f3; border-radius: 2em; justify-content-center;">
-            <h1>
-                Make it <span class="color_purple">Easy</span>
-            </h1>
-            <h6>
-                Contattaci oggi stesso per raggiungere i tuoi obiettivi con un allenamento personalizzato.
-            </h6>
-            <div>
+    <div class="container" style="border-radius: 2em">
 
-                <button class="buttondark">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
-                    </svg>
-                    <div class="text">
-                        Scopri di più
-                    </div>
-                </button>
+        <div class="row my-5 d-flex" style="border-radius: 2em; background: #f3f3f3;">
+
+            <div class="container col-sm-8 justify-content-center align-items-center"
+                style="padding: 3em 0em 0em 3em; border-radius: 2em; background: #f3f3f3; height: 27em;">
+                <div>
+                    <h1>
+                        Make it <span class="color_purple">Easy</span>
+                    </h1>
+                    <p class="my-4">
+                        Contattaci oggi stesso per raggiungere i tuoi obiettivi con un allenamento personalizzato. </br>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+
+                    <button class="buttondark my-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
+                        </svg>
+                        <div class="text">
+                            Scopri di più
+                        </div>
+                    </button>
+
+                </div>
             </div>
-        </div>
 
-        <div class="col-md-5" style="border-radius: 2em; background: #f3f3f3; margin:none">
-            <img class="img-fluid my-3" alt="Responsive image" src="./img/Healthy habit-pana.png"
-                data-holder-rendered="true" style="height:100%; object-position:top; object-fit:cover">
+            <img class="col-sm-4" alt="Responsive image" src="./img/Healthy habit-pana.png"
+                data-holder-rendered="true" style="height=150px;background: #f3f3f3; border-radius:2em">
+
         </div>
     </div>
-
 </x-layout.main>
 
 <x-layout.footer></x-layout.footer>
