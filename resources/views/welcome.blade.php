@@ -9,6 +9,8 @@
         <x-carousel></x-carousel>
 
     </div>
+ <!-- Benefits: HOW- how can you help -->
+
     <div class="nav-scroller py-1 mb-2" style="margin-top: 20px">
         <nav class="nav d-flex justify-content-center">
 
@@ -49,20 +51,22 @@
 
             <div class="row justify-content-left">
 
-                <button class="button-call" style="margin-inline-start: 20px">
+                <button class="button-call justify-content-center" style="margin-inline: 20px">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
                     </svg>
-                    <div class="text">
-                        Scopri di più
+                    <div class="text justify-content-center">
+                        <a class="nav-link" href="{{ route('article.index') }}" style="color: rgb(48, 46, 46);">Scopri di più</a>
                     </div>
                 </button>
             </div>
 
         </div>
     </div>
+
+    <!-- Benefits: WHAT- what i can do for you -->
     <div class="container">
         <div class="row justify-content-center mb-3 d-flex" style="padding:1.8em; margin-top: 15px;">
             <h6>

@@ -37,56 +37,54 @@
             <!-- Right nav/link -->
             @auth
 
-                <div class="d-flex">
-
-
-                    <div class="container col-8 d-flex justify-content-between align-items-center">
+                <div class="row d-flex">
+                    <div class="container col-sm-4 d-flex justify-content-center align-items-center">
                         <a class="nav-link" href="#" role="button">
                             Ciao {{ Auth::user()->name }}
                         </a>
                         @if (Auth::user()->is_admin)
                             <a class="nav-link" href="{{ route('admin.dashboard') }}" style="margin-left:5px"><span
                                     class="color_purple" style="font-weight: 500;">Dashboard</span></a>
-                           
-                            @elseif (Auth::user()->is_revisor)
-                                <li class="nav-item list-unstyled">
-                                    <a class="nav-link" href="{{ route('revisor.dashboard') }}"
-                                        style="margin-left:5px"><span class="color_purple"
-                                            style="font-weight: 500;">Dashboard | Revisore</span></a>
-                                </li>
-                                <li class="nav-item list-unstyled">
+                        @elseif (Auth::user()->is_revisor)
+                            <li class="nav-item list-unstyled">
+                                <a class="nav-link" href="{{ route('revisor.dashboard') }}" style="margin-left:5px"><span
+                                        class="color_purple" style="font-weight: 500;">Dashboard | Revisore</span></a>
+                            </li>
+                            {{-- <li class="nav-item list-unstyled">
                                     <a class="nav-link" href="{{ route('article.create') }}" style="margin-left:5px"><span
                                             class="color_purple" style="font-weight: 500;">Crea il tuo post</span></a>
-                                </li>
-                               
-                                @elseif (Auth::user()->is_writer && Auth::user()->is_writer)
-                                    <li class="nav-item list-unstyled">
-                                        <a class="nav-link" href="{{ route('writer.dashboard') }}"
-                                            style="margin-left:5px"><span class="color_purple"
-                                                style="font-weight: 500;">Dashboard | Autore</span></a>
-                                    </li>
-                                    <li class="nav-item list-unstyled">
-                                        <a class="nav-link" href="{{ route('article.create') }}"
-                                            style="margin-left:5px"><span class="color_purple"
-                                                style="font-weight: 500;">Crea il tuo post</span></a>
-                                    </li>
-
-                                    @else
-                                        <a class="nav-link" href="{{ route('article.create') }}"
-                                            style="margin-left:5px"><span class="color_purple"
-                                                style="font-weight: 500;">Crea il tuo post</span></a>
+                                </li> --}}
+                        @elseif (Auth::user()->is_writer && Auth::user()->is_writer)
+                            <li class="nav-item list-unstyled">
+                                <a class="nav-link" href="{{ route('writer.dashboard') }}" style="margin-left:5px"><span
+                                        class="color_purple" style="font-weight: 500;">Dashboard | Autore</span></a>
+                            </li>
+                            <li class="nav-item list-unstyled">
+                                <a class="nav-link" href="{{ route('article.create') }}" style="margin-left:5px"><span
+                                        class="color_purple" style="font-weight: 500;">Crea il tuo post</span></a>
+                            </li>
+                        @else
+                            <a class="nav-link" href="{{ route('article.create') }}" style="margin-left:5px"><span
+                                    class="color_purple" style="font-weight: 500;">Crea il tuo post</span></a>
 
 
-                                        <a class="nav-link" href="{{ route('careers') }}" style="margin-left:5px"><span
-                                                class="color_purple" style="font-weight: 500;">Lavora con noi</span></a>
-                                 
+                            <a class="nav-link" href="{{ route('careers') }}" style="margin-left:5px"><span
+                                    class="color_purple" style="font-weight: 500;">Lavora con noi</span></a>
                         @endif
                     </div>
 
-                    
-                    <div class="col-6 d-flex justify-content-center align-items-center">
+                    <div class="container col-sm-4 d-flex justify-content-center align-items-center">
+                        <form action="{{ route('article.search') }}" method="GET">
+                            <div class="search-2">
+                                <input placeholder="Cerca..." type="text" name="query">
+                                <button type="submit">Go</button>
+                            </div>
+                        </form>
+                    </div>
 
-                        <div class="justify-content-center">
+                    <div class="col-sm-4 d-flex justify-content-center align-items-center">
+
+                        {{-- <div class="justify-content-center">
                             <form action="{{ route('article.search') }}" method="GET">
                                 @csrf
                                 <button type="button" class="btn btn-light">
@@ -97,7 +95,8 @@
                                     </svg>
                                 </button>
                             </form>
-                        </div>
+                        </div> --}}
+
                         <form action="{{ route('logout') }}" id="logout-form" method="POST">
                             @csrf
                             <button type="submit" class="btn nav-link text-white"
@@ -115,14 +114,7 @@
                     </div>
                 </div>
 
-                <form action="">
-                    @csrf
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
-                        class="bi bi-search" viewBox="0 0 16 16" style="margin-right:15px;">
-                        <path
-                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                    </svg>
-                </form>
+    
             @endauth
 
 
@@ -137,6 +129,7 @@
                             </div>
                         </form>
                     </div>
+
                     <div class="col-md-6 d-flex justify-content-end align-items-end">
                         <button class="button-login" style="margin: 0.2em 0.2em;">
                             <a class="dropdown-item" href="{{ route('login') }}">Login</a>

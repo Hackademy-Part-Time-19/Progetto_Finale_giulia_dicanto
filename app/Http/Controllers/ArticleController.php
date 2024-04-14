@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\ResizeImage;
+use Spatie\Image\Image;
 use App\Models\Tag;
 use App\Models\Article;
 use App\Models\Category;
@@ -30,7 +32,6 @@ class ArticleController extends Controller
     {
         $articles = Article::where('is_accepted', true)
             ->latest()
-            ->take(4)
             ->get();
 
         return view('article.index', compact('articles'));
@@ -49,9 +50,9 @@ class ArticleController extends Controller
         $articles = Article::whereHas('category', function ($query) use ($category) {
             $query->where('name', $category);
         })
-        ->where('is_accepted', true)
-        ->get();
-    
+            ->where('is_accepted', true)
+            ->get();
+
         return view('article.index', compact('articles'));
     }
 
@@ -95,14 +96,20 @@ class ArticleController extends Controller
             'tags' => 'required',
         ]);
 
+        $articleFolder = "articles/{$request->user()->id}";
+        $newImage = $request->file('image')->store($articleFolder, 'public');
+
+
         $article = Article::create([
             'title' => $request->title,
             'subtitle' => $request->subtitle,
             'body' => $request->body,
-            'image' => $request->file('image')->store('public/images'),
+            'image' => $newImage,
             'category_id' => $request->category,
             'user_id' => Auth::user()->id,
         ]);
+        dispatch(new ResizeImage($newImage->path, 400, 300));
+       
 
         $tags = explode(',', $request->tags);
 
@@ -137,58 +144,58 @@ class ArticleController extends Controller
     public function edit(Article $article)
     {
         $categories = Category::all();
-        return view('article.edit', compact('article' , 'categories'));
+        return view('article.edit', compact('article', 'categories'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-   
-public function update(Request $request, Article $article)
-{
-    $request->validate([
-        'title' => [
-            'required',
-            'min:5',
-            Rule::unique('articles')->ignore($article->id),
-        ],
-        'subtitle' => 'required|min:5',
-        'body' => 'required|min:10',
-        'image' => 'image',
-        'category' => 'required',
-        'tags' => 'required',
-    ]);
 
-    $article->update([
-        'title' => $request->title,
-        'subtitle' => $request->subtitle,
-        'body' => $request->body,
-        'category_id' => $request->category,
-    ]);
-
-    if ($request->hasFile('image')) {
-        Storage::delete($article->image);
-        $article->update([
-            'image' => $request->file('image')->store('public/images'),
+    public function update(Request $request, Article $article)
+    {
+        $request->validate([
+            'title' => [
+                'required',
+                'min:5',
+                Rule::unique('articles')->ignore($article->id),
+            ],
+            'subtitle' => 'required|min:5',
+            'body' => 'required|min:10',
+            'image' => 'image',
+            'category' => 'required',
+            'tags' => 'required',
         ]);
+
+        $article->update([
+            'title' => $request->title,
+            'subtitle' => $request->subtitle,
+            'body' => $request->body,
+            'category_id' => $request->category,
+        ]);
+
+        if ($request->hasFile('image')) {
+            Storage::delete($article->image);
+            $article->update([
+                'image' => $request->file('image')->store('public/images'),
+            ]);
+        }
+
+        $tags = explode(',', $request->tags);
+        $newTags = [];
+
+        foreach ($tags as $tag) {
+            $newTag = Tag::updateOrCreate(
+                ['name' => $tag],
+                ['name' => strtolower($tag)]
+            );
+
+            $newTags[] = $newTag->id;
+        }
+
+        $article->tags()->sync($newTags);
+
+        return redirect()->route('writer.dashboard')->with('message', 'Post modificato con successo');
     }
-
-    $tags = explode(',', $request->tags);
-    $newTags = [];
-
-    foreach ($tags as $tag) {
-        $newTag = Tag::updateOrCreate(
-            ['name' => $tag],
-            ['name' => strtolower($tag)]
-        );
-
-        $newTags[] = $newTag->id;
-    }
-
-    $article->tags()->sync($newTags);
-
-    return redirect()->route('writer.dashboard')->with('message', 'Post modificato con successo');
-}
 
     /**
      * Remove the specified resource from storage.

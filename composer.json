@@ -12,6 +12,8 @@
         "laravel/scout": "^10.8",
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.4",
+        "spatie/image": "^3.4",
+        "spatie/laravel-html": "^3.7",
         "teamtnt/laravel-scout-tntsearch-driver": "^14.0"
     },
     "require-dev": {

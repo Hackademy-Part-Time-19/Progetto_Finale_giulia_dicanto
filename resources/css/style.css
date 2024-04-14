@@ -122,7 +122,7 @@ color: #C0B6FF;
 .button-call {
   background-color: #CEFF68;
   color: #2a2a2a;
-  width: 11em;
+  width: 11.5em;
   height: 2.9em;
   border: none;
   border-radius: 11px;
@@ -221,6 +221,7 @@ color: #C0B6FF;
 		display: none;
 	}
 }
+
 
 /* dashboard revisor */
 .card-time {

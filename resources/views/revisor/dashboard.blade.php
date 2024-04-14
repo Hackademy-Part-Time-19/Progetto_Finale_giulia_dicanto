@@ -23,9 +23,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#eliminati"><span class="color_purple">Respinti</span></a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" href="#propri"><span class="color_purple">Scritti</span></a>
-                    </li>
+                    </li> --}}
 
                 </ul>
             </nav>
@@ -81,7 +81,7 @@
             </div>
         </div>
 
-        <div id="propri" class="container my-5">
+        {{-- <div id="propri" class="container my-5">
             <div class="row justify-content-center">
 
                 <div class="col-12">
@@ -89,6 +89,6 @@
                     <x-writer-articles-table :articles="Auth::user()->articles" />
                 </div>
             </div>
-        </div>
+        </div> --}}
 
 </x-layout.main>
