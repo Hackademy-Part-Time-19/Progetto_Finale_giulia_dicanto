@@ -12,9 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->boolean('requested_role')->default(false);
+            $table->tinyInteger('users_requested_role')->after('is_writer')->default(0);
         });
-    
     }
 
     /**
@@ -23,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('requested_role');
+            $table->dropColumn ('users_requested_role');
         });
     }
 };

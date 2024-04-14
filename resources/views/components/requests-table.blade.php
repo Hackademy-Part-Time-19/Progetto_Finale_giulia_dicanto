@@ -4,23 +4,42 @@
             <th scope="col">#</th>
             <th scope="col">Nome</th>
             <th scope="col">Email</th>
+            <th scoper="col"> Ruolo </th>
             <th scope="col">Azioni</th>
 
         </tr>
     </thead>
 
     <tbody>
-        @foreach ($roleRequests as $user)
-        
+        @foreach ($roleRequest as $user)
             <tr>
                 <th scope="role">{{ $user->id }}</th>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>
+                    @switch($user->users_requested_role)
+                        @case(1)
+                            Amministratore
+                        @break
 
-                    <form action="" method="POST">
+                        @case(2)
+                            Revisore
+                        @break
+
+                        @case(3)
+                            Writer
+                        @break
+
+                        @default
+                            Nessuna richiesta di ruolo
+                    @endswitch
+                </td>
+                <td>
+
+                    <form action="{{ route('accept.role', compact ('user'))}}" method="POST">
                         @csrf
                         @method('PATCH')
+                        <input type="hidden" name="roleRequest" value="{{ $roleRequest }}">
                         <button type="submit" class="btn btn-info">Attiva</button>
                     </form>
 
@@ -55,5 +74,5 @@
             </tr>
         @endforeach
     </tbody>
-    
+
 </table>

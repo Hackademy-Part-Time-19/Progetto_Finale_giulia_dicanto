@@ -38,7 +38,7 @@
 
             <div class="col-12">
                 <h2>Nuove <span class="color_purple">Richieste</span></h2>
-                <x-requests-table :roleRequests="$roleRequests" />
+                <x-requests-table :roleRequest="$roleRequest" />
             </div>
         </div>
     </div>

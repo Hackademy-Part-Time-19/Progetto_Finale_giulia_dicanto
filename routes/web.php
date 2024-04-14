@@ -25,9 +25,10 @@ Route::post('/careers/submit', [PublicController::class, 'careersSubmit'])->name
 
 Route::middleware(['admin'])->prefix('admin')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
-    Route::patch('/{user}/set-admin', [AdminController::class, 'setAdmin'])->name('admin.setAdmin');
-    Route::patch('/{user}/set-revisor', [AdminController::class, 'setRevisor'])->name('admin.setRevisor');
-    Route::patch('/{user}/set-writer', [AdminController::class, 'setWriter'])->name('admin.setWriter');
+    Route::patch('/{user}/accept-role', [AdminController::class, 'acceptRole'])->name('accept.role');
+    // Route::patch('/{user}/set-admin', [AdminController::class, 'setAdmin'])->name('admin.setAdmin');
+    // Route::patch('/{user}/set-revisor', [AdminController::class, 'setRevisor'])->name('admin.setRevisor');
+    // Route::patch('/{user}/set-writer', [AdminController::class, 'setWriter'])->name('admin.setWriter');
     Route::put('/edit/{tag}/tag', [AdminController::class, 'editTag'])->name('admin.editTag');
     Route::delete('/delete/{tag}/tag', [AdminController::class, 'deleteTag'])->name('admin.deleteTag');
     Route::put('/edit/{category}/category', [AdminController::class, 'editCategory'])->name('admin.editCategory');

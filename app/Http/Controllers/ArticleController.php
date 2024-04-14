@@ -48,7 +48,9 @@ class ArticleController extends Controller
     {
         $articles = Article::whereHas('category', function ($query) use ($category) {
             $query->where('name', $category);
-        })->get();
+        })
+        ->where('is_accepted', true)
+        ->get();
     
         return view('article.index', compact('articles'));
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use App\Models\Category;
 use App\Models\Article;
 use App\Models\Tag;
@@ -15,13 +16,42 @@ class AdminController extends Controller
     // $adminRequests = User::where('is_admin', NULL)->get();
     // $revisorRequests = User::where('is_revisor', NULL)->get();
     // $writerRequests = User::where('is_writer', NULL)->get();
-    $roleRequests = User::where('requested_role', true)->get();
+    $roleRequest = User::where('requested_role', true)->get();
     $tags = Tag::all();
     $metaInfos = Article::all();
     $categories = Category::all();
 
-    return view('admin.dashboard', compact('roleRequests', 'tags', 'metaInfos', 'categories'));
+
+    return view('admin.dashboard', compact('roleRequest', 'tags', 'metaInfos', 'categories'));
   }
+
+  public function acceptRole(Request $request, User $user)
+  {
+    switch ($user->users_requested_role) {
+      case 1:
+        // setto l'utente admin
+        $user->update(['is_admin' => true, 'requested_role' => false]);
+       
+
+        break;
+      case 2:
+        // setto l'utente revisor
+        $user->update(['is_revisor' => true, 'requested_role' => false]);
+       
+        break;
+      case 3:
+        // setto l'utente writer
+        $user->update(['is_writer' => true, 'requested_role' => false]); 
+        break;
+
+      default:
+        break;
+
+    };
+     
+    return redirect(route('admin.dashboard'))->with('message', 'Ruolo utente aggiornato con successo');
+  }
+
 
   public function setAdmin(User $user)
   {
@@ -64,7 +94,8 @@ class AdminController extends Controller
     return redirect(route('admin.dashboard'))->with('message', 'Hai aggiornato correttamente il tag');
   }
 
-  public function deleteTag (Tag $tag){
+  public function deleteTag(Tag $tag)
+  {
     foreach ($tag->articles as $article) {
       $article->tags()->detach($tag);
     }
@@ -75,7 +106,7 @@ class AdminController extends Controller
 
   }
 
-  public function editCategory (Request $request, Category  $category )
+  public function editCategory(Request $request, Category $category)
   {
 
     $request->validate([
@@ -91,21 +122,22 @@ class AdminController extends Controller
     return redirect(route('admin.dashboard'))->with('message', 'Hai aggiornato correttamente la categoria');
   }
 
-  public function deleteCategory (Category $category){
-   
+  public function deleteCategory(Category $category)
+  {
+
     $category->delete();
 
     return redirect(route('admin.dashboard'))->with('message', 'Hai eliminato correttamente la categoria');
 
   }
-public function storeCategory (Request $request)
-{
-Category::create(
-  [
-    'name' => strtolower($request->name),
-  ]
-  );
+  public function storeCategory(Request $request)
+  {
+    Category::create(
+      [
+        'name' => strtolower($request->name),
+      ]
+    );
 
-  return redirect(route('admin.dashboard'))->with('message', 'Hai inserito una nuova categoria');
-}
+    return redirect(route('admin.dashboard'))->with('message', 'Hai inserito una nuova categoria');
+  }
 }

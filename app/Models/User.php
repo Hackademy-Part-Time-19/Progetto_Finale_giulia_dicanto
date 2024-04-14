@@ -25,6 +25,7 @@ class User extends Authenticatable
         'is_admin',
         'is_revisor',
         'is_writer',
+        'requested_role'
     ];
 
     /**

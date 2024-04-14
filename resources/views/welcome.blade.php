@@ -5,8 +5,10 @@
             {{ session('message') }}
         </div>
     @endif
+    <div class="row">
+        <x-carousel></x-carousel>
 
-    <x-carousel></x-carousel>
+    </div>
     <div class="nav-scroller py-1 mb-2" style="margin-top: 20px">
         <nav class="nav d-flex justify-content-center">
 
@@ -23,51 +25,53 @@
                 href="{{ route('article.byCategory', ['category' => 'Shape&Tone']) }}">Shape&Tone</a>
         </nav>
     </div>
-    <div class="row justify-content-center mb-3 d-flex" style="padding:1.8em; margin-left: 1em; margin-top: 15px;">
-        <h6>
-            News and Updates
-        </h6>
-        <h1>
-            Continua il tuo viaggio nel <span class="color_purple">Fitness</span>
-        </h1>
-    </div>
-
-    <div class="row my-5 justify-content-center" style="padding:1em; margin-top:5px; margin-left: 1em;">
+    <div class="container">
+        <div class="row justify-content-center mb-3 d-flex" style="padding:1.8em; margin-top: 15px;">
+            <h6>
+                News and Updates
+            </h6>
+            <h1>
+                Continua il tuo viaggio nel <span class="color_purple">Fitness</span>
+            </h1>
+        </div>
 
         <div class="row justify-content-center">
-            @foreach ($articles as $article)
-                <div class="col-12 col-md-3">
-                    <x-card :tags="$article->tags" :title="$article->title" :subtitle="$article->subtitle" :image="$article->image" :category="$article->category->name"
-                        :data="$article->created_at->format('d/m/Y')" :user="$article->user->name" :url="route('article.show', compact('article'))" :urlCategory="route('article.byCategory', ['category' => $article->category->id])" />
 
-                </div>
-            @endforeach
+            <div class="row justify-content-center">
+                @foreach ($articles as $article)
+                    <div class="col-md-3">
+                        <x-card :tags="$article->tags" :title="$article->title" :subtitle="$article->subtitle" :image="$article->image"
+                            :category="$article->category->name" :data="$article->created_at->format('d/m/Y')" :user="$article->user->name" :url="route('article.show', compact('article'))" :urlCategory="route('article.byCategory', ['category' => $article->category->id])" />
+
+                    </div>
+                @endforeach
+            </div>
+
+            <div class="row justify-content-left">
+
+                <button class="button-call" style="margin-inline-start: 20px">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
+                    </svg>
+                    <div class="text">
+                        Scopri di più
+                    </div>
+                </button>
+            </div>
+
         </div>
-
-        <div class="row justify-content-left" style="margin:2em 2em;">
-
-            <button class="button-call">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
-                </svg>
-                <div class="text">
-                    Scopri di più
-                </div>
-            </button>
-        </div>
-
     </div>
-
-
-    <div class="row justify-content-center" style="padding:1.8em; margin-left: 1em; margin-top: 30px;">
-        <h6>
-            Special Program
-        </h6>
-        <h1>
-            Allenati con i migliori <span class="color_purple">Coaches</span>
-        </h1>
+    <div class="container">
+        <div class="row justify-content-center mb-3 d-flex" style="padding:1.8em; margin-top: 15px;">
+            <h6>
+                Special Program
+            </h6>
+            <h1>
+                Allenati con i migliori <span class="color_purple">Coaches</span>
+            </h1>
+        </div>
     </div>
     <div class="row justify-content-center mb-3 d-flex;" style="padding:1em;">
 
@@ -208,7 +212,9 @@
                     </h1>
                     <p class="my-4">
                         Contattaci oggi stesso per raggiungere i tuoi obiettivi con un allenamento personalizzato. </br>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat.
                     </p>
 
                     <button class="buttondark my-5">
