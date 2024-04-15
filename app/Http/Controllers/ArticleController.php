@@ -88,7 +88,7 @@ class ArticleController extends Controller
 
 
         $request->validate([
-            'title' => 'required|unique:articles|min:5',
+            'title' => 'required|min:5',
             'subtitle' => 'required|min:5',
             'body' => 'required|min:10',
             'image' => 'image|required',
@@ -96,20 +96,26 @@ class ArticleController extends Controller
             'tags' => 'required',
         ]);
 
-        $articleFolder = "articles/{$request->user()->id}";
-        $newImage = $request->file('image')->store($articleFolder, 'public');
-
-
         $article = Article::create([
             'title' => $request->title,
             'subtitle' => $request->subtitle,
             'body' => $request->body,
-            'image' => $newImage,
+            'image' => '',
             'category_id' => $request->category,
             'user_id' => Auth::user()->id,
         ]);
-        dispatch(new ResizeImage($newImage->path, 400, 300));
-       
+
+        $articleFolder = "articles/{$article->id}";
+        $imagePath = $request->file('image')->store($articleFolder, 'public');
+
+
+        Storage::makeDirectory($articleFolder);
+
+        ResizeImage::dispatch($imagePath, 1500, 1000);
+        $article->image = $imagePath;
+        $article->save();
+
+
 
         $tags = explode(',', $request->tags);
 
@@ -154,14 +160,14 @@ class ArticleController extends Controller
     public function update(Request $request, Article $article)
     {
         $request->validate([
-            'title' => [
+                'title' => [
                 'required',
                 'min:5',
                 Rule::unique('articles')->ignore($article->id),
             ],
             'subtitle' => 'required|min:5',
             'body' => 'required|min:10',
-            'image' => 'image',
+            'image' => '',
             'category' => 'required',
             'tags' => 'required',
         ]);
@@ -175,9 +181,15 @@ class ArticleController extends Controller
 
         if ($request->hasFile('image')) {
             Storage::delete($article->image);
+            $articleFolder = "articles/{$article->id}";
+            $imagePath = $request->file('image')->store($articleFolder, 'public');
             $article->update([
-                'image' => $request->file('image')->store('public/images'),
+                'image' => $imagePath,
             ]);
+
+            ResizeImage::dispatch($imagePath, 1500, 1000);
+        $article->image = $imagePath;
+        $article->save();
         }
 
         $tags = explode(',', $request->tags);

@@ -1,5 +1,5 @@
 <x-layout.main>
-    <div class="container-fluid p-5 bg-info text-center text-white">
+    <div class="container-fluid p-5 text-center text-white" style="background: #C0B6FF;">
         <div class="row justify-content-center">
             <h2 class="display-1">
                 Tutti gli articoli {{$query}}

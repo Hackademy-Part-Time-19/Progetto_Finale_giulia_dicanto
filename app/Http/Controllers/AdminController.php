@@ -53,30 +53,30 @@ class AdminController extends Controller
   }
 
 
-  public function setAdmin(User $user)
-  {
-    $user->is_admin = true;
-    $user->save();
+  // public function setAdmin(User $user)
+  // {
+  //   $user->is_admin = true;
+  //   $user->save();
 
-    return redirect(route('admin.dashboard'))->with('message', 'Hai concesso il ruolo di amministratore all\'utente scelto');
-  }
+  //   return redirect(route('admin.dashboard'))->with('message', 'Hai concesso il ruolo di amministratore all\'utente scelto');
+  // }
 
 
-  public function setRevisor(User $user)
-  {
-    $user->is_revisor = true;
-    $user->save();
+  // public function setRevisor(User $user)
+  // {
+  //   $user->is_revisor = true;
+  //   $user->save();
 
-    return redirect(route('admin.dashboard'))->with('message', 'Hai concesso il ruolo di revisore all\'utente scelto');
-  }
+  //   return redirect(route('admin.dashboard'))->with('message', 'Hai concesso il ruolo di revisore all\'utente scelto');
+  // }
 
-  public function setWriter(User $user)
-  {
-    $user->is_writer = true;
-    $user->save();
+  // public function setWriter(User $user)
+  // {
+  //   $user->is_writer = true;
+  //   $user->save();
 
-    return redirect(route('admin.dashboard'))->with('message', 'Hai concesso il ruolo di autore all\'utente scelto');
-  }
+  //   return redirect(route('admin.dashboard'))->with('message', 'Hai concesso il ruolo di autore all\'utente scelto');
+  // }
 
   public function editTag(Request $request, Tag $tag)
   {

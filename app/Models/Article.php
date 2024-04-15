@@ -8,6 +8,7 @@ use App\Models\Tag;
 use App\Models\Category;
 use App\Models\User;
 use Laravel\Scout\Searchable;
+use Illuminate\Support\Facades\Storage;
 
 class Article extends Model
 {
@@ -53,6 +54,23 @@ class Article extends Model
 
         return $this->belongsToMany(Tag::class);
 
+    }
+
+    public static function getUrlByFilePath($filePath, $w = null, $h = null)
+    {
+        if (!$w && !$h) {
+            return Storage::url($filePath);
+        }
+        $path = dirname($filePath);
+        $filename = basename($filePath);
+        $file = "{$path}/crop_{$w}x{$h}_{$filename}";
+
+        return Storage::url($file);
+
+    }
+    public function getUrl($w = null, $h = null)
+    {
+        return Article::getUrlByFilePath($this->image, $w, $h);
     }
 
 }

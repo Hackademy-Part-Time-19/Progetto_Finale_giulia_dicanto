@@ -63,6 +63,10 @@ p {
 color: #C0B6FF;
 }
 
+.color_grey {
+  color: #777777;
+  }
+
 .topright {
   position: relative;
   top:0%;
